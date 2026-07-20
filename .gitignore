@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Expo
+apps/mobile/.expo/
+apps/mobile/dist/
+apps/mobile/web-build/
+
+# Build artifacts
+tools/sync-server/dist/
+
+# Env files
+.env
+.env.local
+.env.*.local
+gemini-cred.txt
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# SQLite backups (keep dir, ignore contents)
+tools/sync-server/.dev-backups/*.db
+
+# Logs
+*.log
+npm-debug.log*
+.agy/
+apps/mobile/coverage/
+tools/sync-server/coverage/
+coverage/
