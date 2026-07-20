@@ -77,6 +77,14 @@ describe('Sync Server Endpoints', () => {
     });
   });
 
+  it('GET /dashboard — returns the dashboard HTML page', async () => {
+    const res = await request(app).get('/dashboard');
+    expect(res.status).toBe(200);
+    expect(res.header['content-type']).toContain('text/html');
+    expect(res.text).toContain('<!DOCTYPE html>');
+    expect(res.text).toContain('QuickYT - Dashboard');
+  });
+
   it('POST /api/sync/backup — accepts valid SQLite .db files', async () => {
     // Create temporary mock database buffer
     const mockDbBuffer = Buffer.from('SQLite format 3\0', 'binary');

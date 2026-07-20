@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickYT - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e1e2ec",
+                        "primary-fixed-dim": "#adc6ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "inverse-on-surface": "#2e3038",
+                        "on-secondary-fixed-variant": "#005236",
+                        "tertiary": "#b7c8e1",
+                        "surface-container-lowest": "#0b0e15",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-secondary": "#003824",
+                        "primary-container": "#4d8eff",
+                        "surface-bright": "#363941",
+                        "surface-dim": "#10131a",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#8c909f",
+                        "surface-container-low": "#191b23",
+                        "on-secondary-container": "#00311f",
+                        "on-tertiary": "#213145",
+                        "surface-tint": "#adc6ff",
+                        "surface-variant": "#32353c",
+                        "surface-container-high": "#272a31",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#1a2b3e",
+                        "secondary": "#4edea3",
+                        "on-secondary-fixed": "#002113",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#424754",
+                        "surface": "#10131a",
+                        "surface-container-highest": "#32353c",
+                        "inverse-surface": "#e1e2ec",
+                        "on-primary-container": "#00285d",
+                        "on-primary": "#002e6a",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "primary": "#adc6ff",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "secondary-fixed-dim": "#4edea3",
+                        "tertiary-container": "#8292aa",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container": "#1d2027",
+                        "background": "#10131a",
+                        "on-error": "#690005",
+                        "secondary-container": "#00a572",
+                        "inverse-primary": "#005ac2",
+                        "on-primary-fixed": "#001a42",
+                        "on-surface": "#e1e2ec",
+                        "on-surface-variant": "#c2c6d6",
+                        "tertiary-fixed": "#d3e4fe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "base": "4px",
+                        "container-margin": "16px",
+                        "md": "16px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "30px", "fontWeight": "700" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-lg": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: hsla(222, 47%, 15%, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid hsla(222, 47%, 25%, 1);
+        }
+        .btn-primary-gloss {
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%), var(--tw-colors-primary-container);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .pulse-anim {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .7; transform: scale(1.05); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-background/70 dark:bg-background/70 backdrop-blur-xl text-primary dark:text-primary-fixed-dim font-headline-md text-headline-md fixed top-0 w-full z-50 border-b border-outline-variant/30 shadow-none">
+<div class="flex items-center justify-between px-container-margin h-16 w-full">
+<button class="hover:bg-surface-variant/50 transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-lg-mobile text-headline-lg-mobile tracking-tight text-primary dark:text-primary-fixed-dim">
+                QuickYT
+            </div>
+<button class="hover:bg-surface-variant/50 transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+</button>
+</div>
+</header>
+<!-- Main Content - Bento Grid -->
+<main class="pt-24 pb-32 px-container-margin max-w-7xl mx-auto">
+<div class="grid grid-cols-4 gap-gutter md:gap-lg">
+<!-- Section 1: Header/Sync Status -->
+<div class="col-span-4 md:col-span-4 glass-card rounded-xl p-md flex flex-col md:flex-row md:items-center justify-between gap-sm">
+<div>
+<h2 class="font-label-lg text-label-lg text-on-surface-variant mb-1 uppercase tracking-wider">System Status</h2>
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary-container shadow-[0_0_8px_rgba(0,165,114,0.6)]"></div>
+<span class="font-headline-md text-headline-md text-on-surface">Connected</span>
+</div>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm md:text-right mt-2 md:mt-0 bg-surface-container-high/50 px-3 py-1.5 rounded-full inline-flex items-center gap-1.5 w-fit">
+<span class="material-symbols-outlined text-[16px]" data-icon="history">history</span>
+                    Last Synced: 2 mins ago
+                </div>
+</div>
+<!-- Section 2: Ingestion Bento -->
+<div class="col-span-4 md:col-span-2 flex flex-col gap-gutter">
+<!-- URL Input Card -->
+<div class="glass-card rounded-xl p-md flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant mb-3">Target URL</h3>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors" data-icon="link">link</span>
+</div>
+<input class="w-full bg-[#080a0f] border border-outline-variant/50 rounded-lg py-3 pl-10 pr-4 text-on-surface font-body-md placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all shadow-inner" placeholder="https://youtube.com/watch?v=..." type="url"/>
+</div>
+</div>
+<!-- Language Selection Card -->
+<div class="glass-card rounded-xl p-md flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant mb-3 flex justify-between items-center">
+                        Processing Language
+                        <span class="material-symbols-outlined text-[16px]" data-icon="translate">translate</span>
+</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full border border-primary bg-primary/10 text-primary font-label-lg text-label-lg transition-colors hover:bg-primary/20">English</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant font-label-lg text-label-lg transition-colors hover:bg-surface-variant/50">Spanish</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant font-label-lg text-label-lg transition-colors hover:bg-surface-variant/50">French</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant font-label-lg text-label-lg transition-colors hover:bg-surface-variant/50">German</button>
+</div>
+</div>
+</div>
+<!-- Section 3: Status Bento (Scrollable List) -->
+<div class="col-span-4 md:col-span-2 glass-card rounded-xl p-md h-[400px] flex flex-col relative overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[hsla(222,47%,15%,1)] to-transparent pointer-events-none z-10 hidden"></div>
+<div class="flex justify-between items-center mb-4 z-20">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant">Analysis Queue</h3>
+<span class="bg-surface-container-high px-2 py-1 rounded-md font-label-sm text-label-sm text-outline">3 items</span>
+</div>
+<div class="overflow-y-auto pr-2 space-y-3 z-0 custom-scrollbar flex-1 pb-4">
+<!-- Item 1: Processing -->
+<div class="p-3 bg-surface-container-lowest/50 rounded-lg border border-outline-variant/30 hover:border-outline-variant transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-lg text-label-lg text-on-surface truncate pr-2 group-hover:text-primary transition-colors">Advanced Tailwind CSS Course 2024</h4>
+<span class="shrink-0 px-2 py-1 rounded-full bg-primary-container/20 border border-primary-container/50 text-primary font-label-sm text-label-sm flex items-center gap-1 pulse-anim">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                Processing
+                            </span>
+</div>
+<div class="flex items-center gap-2 text-outline-variant font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]" data-icon="videocam">videocam</span>
+                            dQw4w9WgXcQ
+                        </div>
+<div class="mt-3 h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3 rounded-full relative shadow-[0_0_8px_rgba(173,198,255,0.5)]">
+<div class="absolute inset-0 bg-white/20 animate-[shimmer_1.5s_infinite]"></div>
+</div>
+</div>
+</div>
+<!-- Item 2: Complete -->
+<div class="p-3 bg-surface-container-lowest/50 rounded-lg border border-outline-variant/30 hover:border-outline-variant transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-lg text-label-lg text-on-surface truncate pr-2 group-hover:text-primary transition-colors">UI Design System Masterclass</h4>
+<span class="shrink-0 px-2 py-1 rounded-full bg-secondary-container/10 border border-secondary-container text-secondary-container font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span>
+                                Complete
+                            </span>
+</div>
+<div class="flex items-center gap-2 text-outline-variant font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]" data-icon="videocam">videocam</span>
+                            oHg5SJYRHA0
+                        </div>
+</div>
+<!-- Item 3: Pending -->
+<div class="p-3 bg-surface-container-lowest/50 rounded-lg border border-outline-variant/30 hover:border-outline-variant transition-colors group opacity-70">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-lg text-label-lg text-on-surface truncate pr-2 group-hover:text-primary transition-colors">React Native Animation Guide</h4>
+<span class="shrink-0 px-2 py-1 rounded-full bg-surface-variant border border-outline-variant text-outline font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span>
+                                Pending
+                            </span>
+</div>
+<div class="flex items-center gap-2 text-outline-variant font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]" data-icon="videocam">videocam</span>
+                            jNQXAC9IVRw
+                        </div>
+</div>
+</div>
+<div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[hsla(222,47%,15%,1)] to-transparent pointer-events-none z-10"></div>
+</div>
+<!-- Section 4: Actions Bento -->
+<div class="col-span-4 glass-card rounded-xl p-md flex items-center justify-between">
+<div class="hidden md:block">
+<h3 class="font-headline-md text-headline-md text-on-surface">Ready to Process</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Select a language and target URL to begin.</p>
+</div>
+<button class="w-full md:w-auto flex-1 md:flex-none btn-primary-gloss bg-primary-container text-on-primary-container font-headline-md text-headline-md py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:opacity-90 active:scale-[0.98] transition-all group">
+<span class="material-symbols-outlined text-[28px] group-hover:-translate-y-1 transition-transform" data-icon="cloud_upload">cloud_upload</span>
+                    Sync &amp; Backup Now
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container/70 dark:bg-surface-container/70 backdrop-blur-2xl text-primary dark:text-primary-fixed-dim font-label-lg text-label-lg fixed bottom-0 w-full z-50 rounded-t-xl border-t border-outline-variant/20 shadow-2xl flex justify-around items-center h-20 px-4 pb-safe md:hidden">
+<!-- Active Nav Item -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 hover:bg-white/5 transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/5 transition-all active:scale-90 duration-300 px-2 py-1">
+<span class="material-symbols-outlined mb-1" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/5 transition-all active:scale-90 duration-300 px-2 py-1">
+<span class="material-symbols-outlined mb-1" data-icon="video_library">video_library</span>
+<span>Content</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/5 transition-all active:scale-90 duration-300 px-2 py-1">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span>Settings</span>
+</button>
+</nav>
+<!-- NavigationDrawer (Hidden on Mobile, Visible on Desktop as Side Nav placeholder) -->
+<!-- Not rendering full side drawer structurally as per bento layout focus, but keeping space open if layout evolves -->
+<style>
+        /* Custom Scrollbar for Status List */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: var(--tw-colors-outline-variant);
+            border-radius: 4px;
+            opacity: 0.5;
+        }
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</body></html>

@@ -44,6 +44,11 @@ app.get('/api/sync/status', (_req, res) => {
   res.json(makeSuccessResponse(undefined, 'Sync server is running.'));
 });
 
+// Dashboard preview endpoint
+app.get('/dashboard', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'dashboard.html'));
+});
+
 // Sync Endpoint: App pushes DB to PC
 app.post(
   '/api/sync/backup',
