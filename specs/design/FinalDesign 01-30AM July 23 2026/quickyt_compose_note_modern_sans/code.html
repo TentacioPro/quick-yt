@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickYT - Compose Video Note</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                // Keep base colors if needed, but we'll use inline hex for the minimal slate theme
+              },
+              "borderRadius": {
+                      "sm": "0.125rem",
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "section-gap": "32px",
+                      "container-padding": "24px",
+                      "element-gap": "16px",
+                      "sidebar-width": "280px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "label-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                      "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                      "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                      "headline-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        /* Hide scrollbar for clean aesthetic but allow scrolling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E0E0E0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #BDBDBD;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 z-40 bg-transparent flex items-center px-container-padding h-[64px]">
+<button class="text-black cursor-pointer active:opacity-80 p-2 hover:bg-[#E0E0E0] transition-colors rounded-sm -ml-2" id="menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-7xl mx-auto px-gutter pb-section-gap w-full flex-1">
+<!-- Page Header -->
+<div class="mb-section-gap mt-4">
+<a class="inline-flex items-center text-[#424242] hover:text-black transition-colors text-label-md font-label-md mb-4" href="#">
+<span class="material-symbols-outlined text-sm mr-1">arrow_back</span>
+            Back to Feed
+        </a>
+<h1 class="text-headline-lg font-bold text-black mb-2 tracking-tight">Compose Note</h1>
+<p class="text-body-lg text-[#424242]">Document your neural analysis observations in real-time</p>
+</div>
+<!-- Bento Grid Layout for Composer -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Form Column (8 cols on desktop) -->
+<div class="lg:col-span-8 flex flex-col gap-element-gap">
+<!-- Video Preview Card -->
+<div class="bg-[#F5F5F5] rounded-sm overflow-hidden group">
+<div class="relative w-full aspect-video bg-black">
+<!-- Video Placeholder Image -->
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 grayscale-[0.3] group-hover:grayscale-0" data-alt="A cinematic, high-resolution still from a deep sea exploration documentary. The image shows a sleek, metallic remotely operated underwater vehicle (ROV) illuminating a complex coral reef in the dark abyssal zone. Strong directional lighting creates dramatic shadows. Deep oceanic blues and stark whites dominate the minimal, professional color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS63zLd1hyO0iNN5nDPAuW_3lb4eE5yefNaLFEBzzdpy3BhxzbV4RMH_hG2unq7aktsjKcizC6ua2NHpajxDZddrAZnqQEcYzOZ4jNzwpaoori1IM4hs_VGIshCbqdM21AywgkeId4FdG8wzHdNTTMtqHkx3O7sbARMhqZDxntUutdD5U-eBVNwiEhfivEZULe0N6syrQ2NLQPsS9B_EYNM-_-uYPpr99IwBcWL-II5u9V3qzJ0MqgdMg_qd7_o5awAed6oi5C_OLx"/>
+<!-- Play Overlay -->
+<div class="absolute inset-0 flex items-center justify-center bg-black/20">
+<button class="w-16 h-16 rounded-full bg-white/90 backdrop-blur flex items-center justify-center hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-black text-3xl ml-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Video Metadata Bar -->
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent flex justify-between items-end">
+<div>
+<span class="text-white text-label-md font-label-md block mb-1">Deep Sea Exploration - Segment 4</span>
+<span class="text-[#E0E0E0] text-label-md font-label-md font-mono">12:44 / 45:20</span>
+</div>
+<span class="bg-black/80 px-2 py-1 rounded-sm text-white text-xs font-mono backdrop-blur">@ 14:05</span>
+</div>
+</div>
+</div>
+<!-- Note Input Area -->
+<div class="bg-[#F5F5F5] rounded-sm flex flex-col min-h-[300px]">
+<!-- Formatting Toolbar -->
+<div class="flex items-center gap-2 p-3 border-b border-[#E0E0E0] bg-[#F5F5F5] rounded-t-sm">
+<button class="p-2 text-[#424242] hover:text-black hover:bg-[#E0E0E0] rounded-sm transition-colors" title="Bold">
+<span class="material-symbols-outlined text-sm">format_bold</span>
+</button>
+<button class="p-2 text-[#424242] hover:text-black hover:bg-[#E0E0E0] rounded-sm transition-colors" title="Italic">
+<span class="material-symbols-outlined text-sm">format_italic</span>
+</button>
+<div class="w-px h-5 bg-[#E0E0E0] mx-1"></div>
+<button class="p-2 text-[#424242] hover:text-black hover:bg-[#E0E0E0] rounded-sm transition-colors" title="Bullet List">
+<span class="material-symbols-outlined text-sm">format_list_bulleted</span>
+</button>
+<button class="p-2 text-[#424242] hover:text-black hover:bg-[#E0E0E0] rounded-sm transition-colors" title="Numbered List">
+<span class="material-symbols-outlined text-sm">format_list_numbered</span>
+</button>
+<div class="w-px h-5 bg-[#E0E0E0] mx-1"></div>
+<button class="p-2 text-[#424242] hover:text-black hover:bg-[#E0E0E0] rounded-sm transition-colors" title="Insert Link">
+<span class="material-symbols-outlined text-sm">link</span>
+</button>
+<button class="p-2 text-[#424242] hover:text-black hover:bg-[#E0E0E0] rounded-sm transition-colors" title="Insert Timestamp">
+<span class="material-symbols-outlined text-sm">schedule</span>
+</button>
+<div class="ml-auto flex items-center">
+<span class="text-[#424242] text-label-md font-label-md mr-3">Markdown supported</span>
+</div>
+</div>
+<!-- Text Area -->
+<textarea class="flex-1 w-full bg-transparent border-none text-body-md font-body-md text-black placeholder:text-[#424242]/70 p-4 focus:ring-0 resize-y min-h-[200px]" placeholder="Start typing your observation at 14:05..."></textarea>
+</div>
+</div>
+<!-- Meta Side Column (4 cols on desktop) -->
+<div class="lg:col-span-4 flex flex-col gap-element-gap">
+<!-- Classification Card -->
+<div class="bg-[#F5F5F5] rounded-sm p-[24px]">
+<h3 class="text-label-lg font-bold text-black mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">label</span>
+                    Classification
+                </h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<!-- Selected Chip -->
+<button class="px-3 py-1.5 bg-black text-white text-label-md font-label-md rounded-sm flex items-center gap-1 transition-colors hover:bg-[#424242]">
+                        Research
+                        <span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+<!-- Unselected Chips -->
+<button class="px-3 py-1.5 bg-[#E0E0E0] text-[#424242] text-label-md font-label-md rounded-sm hover:bg-[#BDBDBD] hover:text-black transition-colors">
+                        Observation
+                    </button>
+<button class="px-3 py-1.5 bg-[#E0E0E0] text-[#424242] text-label-md font-label-md rounded-sm hover:bg-[#BDBDBD] hover:text-black transition-colors">
+                        Critical
+                    </button>
+<button class="px-3 py-1.5 bg-[#E0E0E0] text-[#424242] text-label-md font-label-md rounded-sm hover:bg-[#BDBDBD] hover:text-black transition-colors">
+                        Methodology
+                    </button>
+<button class="px-3 py-1.5 bg-transparent border border-[#BDBDBD] text-[#424242] text-label-md font-label-md rounded-sm hover:bg-[#E0E0E0] hover:text-black transition-colors border-dashed flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">add</span>
+                        Add Tag
+                    </button>
+</div>
+<div class="h-px w-full bg-[#E0E0E0] mb-6"></div>
+<h3 class="text-label-lg font-bold text-black mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                    Visibility
+                </h3>
+<div class="flex flex-col gap-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-4 h-4 rounded-full border-2 border-black flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-black"></div>
+</div>
+<span class="text-body-md font-body-md text-black">Team (Shared)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-4 h-4 rounded-full border-2 border-[#BDBDBD] group-hover:border-black transition-colors flex items-center justify-center">
+</div>
+<span class="text-body-md font-body-md text-[#424242] group-hover:text-black transition-colors">Private</span>
+</label>
+</div>
+</div>
+<!-- Sync Info Card -->
+<div class="bg-[#F5F5F5] rounded-sm p-[24px] flex items-start gap-4">
+<span class="material-symbols-outlined text-[#424242] mt-1">sync_saved_locally</span>
+<div>
+<h4 class="text-label-lg font-bold text-black mb-1">Auto-saving</h4>
+<p class="text-label-md font-label-md text-[#424242]">Last saved 2 mins ago to local draft.</p>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-auto pt-4 flex flex-col gap-3">
+<button class="w-full py-3 bg-black text-white text-label-lg font-semibold rounded-sm hover:bg-[#424242] transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-sm">save</span>
+                    Save Note
+                </button>
+<button class="w-full py-3 bg-[#E0E0E0] text-black text-label-lg font-semibold rounded-sm hover:bg-[#BDBDBD] transition-colors">
+                    Cancel
+                </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

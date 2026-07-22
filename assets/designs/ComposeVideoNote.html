@@ -1,0 +1,268 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#ffe2ab",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "primary-fixed-dim": "#fbbc00",
+                      "primary-container": "#ffbf00",
+                      "on-secondary-container": "#b7b5b4",
+                      "error": "#ffb4ab",
+                      "background": "#131313",
+                      "secondary-fixed": "#e5e2e1",
+                      "error-container": "#93000a",
+                      "tertiary": "#b4efff",
+                      "surface-container-highest": "#353534",
+                      "tertiary-container": "#04dcff",
+                      "surface-variant": "#353534",
+                      "on-surface": "#e5e2e1",
+                      "surface": "#131313",
+                      "on-secondary": "#313030",
+                      "tertiary-fixed-dim": "#00d9fc",
+                      "surface-bright": "#393939",
+                      "secondary-container": "#474746",
+                      "secondary": "#c8c6c5",
+                      "on-tertiary": "#003640",
+                      "on-primary-fixed-variant": "#5c4300",
+                      "on-primary-fixed": "#261a00",
+                      "on-primary": "#402d00",
+                      "inverse-on-surface": "#313030",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-primary-container": "#6d5000",
+                      "on-background": "#e5e2e1",
+                      "tertiary-fixed": "#aaedff",
+                      "on-secondary-fixed-variant": "#474746",
+                      "on-tertiary-container": "#005d6d",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-container": "#201f1f",
+                      "surface-container-high": "#2a2a2a",
+                      "on-tertiary-fixed": "#001f26",
+                      "surface-tint": "#fbbc00",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "on-tertiary-fixed-variant": "#004e5c",
+                      "surface-dim": "#131313",
+                      "primary-fixed": "#ffdfa0",
+                      "on-error": "#690005",
+                      "outline": "#9c8f78",
+                      "on-surface-variant": "#d4c5ab",
+                      "outline-variant": "#504532",
+                      "inverse-primary": "#795900"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "inline-gap": "12px",
+                      "unit": "4px",
+                      "section-gap": "48px",
+                      "container-margin-mobile": "20px",
+                      "stack-gap": "16px",
+                      "container-margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "headline-xl": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    }catch(_e){}</script></head><body class="antialiased min-h-screen flex flex-col pt-16 bg-background text-on-background bg-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 shadow-none bg-surface-container-low border-b border-surface-container-highest/30">
+<div class="flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop h-16">
+<div class="flex items-center gap-inline-gap">
+<!-- Back button for task flow -->
+<button aria-label="Go back" class="text-primary-container hover:opacity-80 transition-opacity cursor-pointer active:scale-95 flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" data-original-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary-container">QuickYT</h1>
+</div>
+<div class="flex items-center">
+<!-- Trailing avatar -->
+<button class="hover:opacity-80 transition-opacity cursor-pointer active:scale-95 overflow-hidden rounded-full h-8 w-8 noir-shadow">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A moody, high-contrast black and white portrait of a person used as a user avatar, matching the intellectual noir aesthetic of the application, featuring stark shadows and dramatic lighting, very cinematic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClK2OG-p8b8ggpZqFID8waL4hfcHqAOD6T8lM_ZCyeoOwmuAOQ-hftpa1pWR3PBu3qAoyJi-DewWDkkzJGoU23ZHJQH8BKecKaNaUZKiHRUOHgmMzZR9VM8GoBUFADJEJqAcYOzCYvQIy4G4ZUXeqWmKVHw574xPePbQKU1GhjAOjEPmybM5r4RvIf03qs01IN1YUNOIjMeHDgsdnMbvS7QWVUT4ClqId6XhYVJRjbSXw5J800F9qDMZ3RgYq9QJNNar83YlW5YuU">
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col md:max-w-[1200px] md:mx-auto w-full px-container-margin-mobile md:px-container-margin-desktop py-stack-gap md:py-section-gap gap-section-gap">
+<!-- Tagged Video Header -->
+<section class="bg-surface-container-low rounded-xl p-stack-gap md:p-6 flex flex-col sm:flex-row gap-stack-gap items-start sm:items-center">
+<div class="w-full sm:w-32 md:w-48 aspect-video rounded-lg overflow-hidden noir-shadow flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-contrast still from an art house film showing an urban landscape at night. The scene is bathed in deep blacks and subtle amber streetlights, representing the intellectual noir aesthetic. Fog rolls through empty streets, creating a sense of mystery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ447DPKaJjkg-X8w6Sn3EQLSwrUNz_rBmcW5pOvnHhSJyYTWegwwV2BRH89qCHAc4FVl8pF6jq9l2QliAIEcsqVPVyNiKGs9asz4vqihUeZYqj_7uEEjJs7Beg5YwI2N2d6A3FESzSxKQFqJ0_XpwRKIk2Z59FVwACoMEwaIgpo_ZJERTuBLt-sPAlVqgvJfAgZx5LLxoOXv_eLqHUni9cuSeqpYgOG8vkHttUmGZfRJvgKf_5Vzb0spft7XT1jlygYLROIZ_95k">
+<div class="absolute bottom-1 right-1 bg-surface-container-lowest/80 backdrop-blur-sm px-2 py-0.5 rounded font-label-sm text-label-sm text-on-surface">12:44</div>
+</div>
+<div class="flex flex-col gap-unit flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-label-md text-primary-container uppercase tracking-widest">Tagged Asset</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface line-clamp-2 font-headline-lg">The Architecture of Silence: Spatial Design in Neo-Noir Cinema</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span> 24.5K
+                    <span class="mx-2">•</span>
+<span class="material-symbols-outlined text-[16px]">calendar_today</span> Oct 12, 2023
+                </p>
+</div>
+</section>
+<!-- Note Composition Area -->
+<section class="flex flex-col gap-stack-gap flex-grow">
+<!-- Category Selector -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-md text-label-md text-on-surface-variant">Analytical Lens</label>
+<div class="flex flex-wrap gap-inline-gap mt-2">
+<button class="px-4 py-2 rounded-full font-label-md text-label-md text-on-surface border border-transparent hover:border-surface-container-highest transition-colors flex items-center gap-2 group bg-surface-container">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-primary-container transition-colors">movie</span>
+                        Cinematography
+                    </button>
+<button class="bg-primary-container px-4 py-2 rounded-full font-label-md text-label-md text-on-primary-container border border-transparent flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">speed</span>
+                        Pacing &amp; Rhythm
+                    </button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md text-on-surface border border-transparent hover:border-surface-container-highest transition-colors flex items-center gap-2 group bg-surface-container">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-primary-container transition-colors">palette</span>
+                        Color Theory
+                    </button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md text-on-surface border border-transparent hover:border-surface-container-highest transition-colors flex items-center gap-2 group bg-surface-container">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-primary-container transition-colors">history_edu</span>
+                        Narrative Structure
+                    </button>
+<button aria-label="Add custom category" class="px-4 py-2 rounded-full flex items-center justify-center hover:bg-surface-container-highest transition-colors bg-surface-container">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">add</span>
+</button>
+</div>
+</div>
+<!-- Text Area -->
+<div class="flex flex-col flex-grow mt-4 bg-surface-container-low rounded-xl p-0 overflow-hidden relative border border-surface-bright">
+<!-- Toolbar -->
+<div class="bg-surface-container px-4 py-2 flex items-center gap-4 border-b border-surface-container-highest/50">
+<button class="text-on-surface-variant hover:text-primary-container transition-colors p-1"><span class="material-symbols-outlined text-[20px]">format_bold</span></button>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors p-1"><span class="material-symbols-outlined text-[20px]">format_italic</span></button>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors p-1"><span class="material-symbols-outlined text-[20px]">format_underlined</span></button>
+<div class="w-px h-4 bg-surface-container-highest mx-1"></div>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors p-1"><span class="material-symbols-outlined text-[20px]">format_list_bulleted</span></button>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors p-1"><span class="material-symbols-outlined text-[20px]">format_quote</span></button>
+<div class="flex-grow"></div>
+<span class="font-label-sm text-label-sm text-surface-container-highest">Draft saved 2m ago</span>
+</div>
+<textarea class="w-full bg-transparent font-body-lg text-body-lg text-on-surface p-6 resize-none flex-grow min-h-[300px] md:min-h-[400px] border-none focus:ring-0" placeholder="Record your analytical insights here..."></textarea>
+<!-- Bottom Focus indicator -->
+<div class="h-0.5 w-full bg-transparent absolute bottom-0 left-0 transition-colors duration-300" id="focus-bar"></div>
+</div>
+</section>
+<!-- Actions -->
+<section class="flex justify-end gap-inline-gap mt-4 mb-section-gap">
+<button class="px-6 py-3 rounded-lg font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors">
+                Discard
+            </button>
+<button class="bg-primary-container text-on-secondary-fixed px-8 py-3 rounded-lg font-label-md text-label-md shadow-lg shadow-primary-container/10 hover:shadow-primary-container/20 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                Save Note
+            </button>
+</section>
+</main>
+<!-- Navigation Shell Logic: 
+         This is a 'Write Note' screen, which is a Task-Focused sub-page featuring a 'Back' action, 
+         implying a temporary departure from the main navigation flow. 
+         Therefore, the BottomNavBar and NavigationDrawer are SUPPRESSED to prioritize the content canvas. -->
+<script class="">
+        // Micro-interaction for text area focus
+        const textarea = document.querySelector('textarea');
+        const focusBar = document.getElementById('focus-bar');
+        
+        textarea.addEventListener('focus', () => {
+            focusBar.classList.replace('bg-transparent', 'bg-primary-container');
+        });
+        
+        textarea.addEventListener('blur', () => {
+            focusBar.classList.replace('bg-primary-container',</script></body></html>

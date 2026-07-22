@@ -1,27 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GlobalSnackbar } from './src/ui/GlobalSnackbar';
+import { EditorialTheme } from './src/ui/Theme';
+import { Navigation } from './src/Navigation';
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <PaperProvider>
-        <View style={styles.container}>
-          {/* App screens will be rendered here in subsequent tasks */}
-          <StatusBar style="auto" />
-        </View>
-        {/* GlobalSnackbar must be inside PaperProvider — reads useToastStore */}
+      <PaperProvider theme={EditorialTheme}>
+        <Navigation />
         <GlobalSnackbar />
+        <StatusBar style="auto" />
       </PaperProvider>
     </SafeAreaProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
+const styles = StyleSheet.create({});

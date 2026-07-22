@@ -18,6 +18,8 @@ gemini-cred.txt
 
 # Editor
 .vscode/
+.vscode/mcp.json
+mcp.json
 .idea/
 *.swp
 *.swo

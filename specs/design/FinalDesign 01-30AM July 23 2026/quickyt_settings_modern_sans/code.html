@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "slate-canvas": "#FFFFFF",
+              "slate-surface-low": "#F5F5F5",
+              "slate-surface-high": "#E0E0E0",
+              "slate-primary": "#000000",
+              "slate-secondary": "#424242",
+              "slate-accent": "#FFB300"
+            },
+            "borderRadius": {
+              "none": "0px",
+              "sm": "4px"
+            },
+            "spacing": {
+              "element-gap": "16px",
+              "sidebar-width": "280px",
+              "container-padding": "24px",
+              "section-gap": "32px",
+              "gutter": "24px"
+            },
+            "fontFamily": {
+              "sans": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    }catch(_e){}</script><meta charset="utf-8"/>
+<style>
+  /* Custom Toggle Switch for Minimalist Slate */
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+  }
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #E0E0E0;
+    transition: .4s;
+    border-radius: 24px;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  input:checked + .slider {
+    background-color: #000000;
+  }
+  input:checked + .slider:before {
+    transform: translateX(20px);
+    background-color: #FFB300;
+  }
+</style>
+</head><body class="bg-slate-canvas overflow-x-hidden text-slate-primary font-sans">
+<!-- TopAppBar -->
+<header class="w-full z-50 flex items-center px-container-padding h-[72px]">
+<div class="flex items-center">
+<button class="p-2 hover:bg-slate-surface-low transition-colors rounded-sm text-slate-primary -ml-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- NavigationDrawer -->
+<aside class="fixed left-0 top-[72px] h-[calc(100vh-72px)] w-64 hidden flex-col bg-slate-surface-low transition-all duration-300 z-40 border-r border-slate-surface-high" id="sidebar">
+<nav class="flex flex-col gap-1 pt-6 px-3">
+<div class="text-slate-primary bg-slate-surface-high flex items-center gap-4 px-4 py-3 rounded-sm cursor-pointer font-semibold">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm">Settings</span>
+</div>
+<div class="text-slate-secondary hover:bg-slate-surface-high hover:text-slate-primary flex items-center gap-4 px-4 py-3 transition-colors rounded-sm cursor-pointer font-medium">
+<span class="material-symbols-outlined">video_library</span>
+<span class="text-sm">Video Library</span>
+</div>
+<div class="text-slate-secondary hover:bg-slate-surface-high hover:text-slate-primary flex items-center gap-4 px-4 py-3 transition-colors rounded-sm cursor-pointer font-medium">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm">Analytics</span>
+</div>
+<div class="text-slate-secondary hover:bg-slate-surface-high hover:text-slate-primary flex items-center gap-4 px-4 py-3 transition-colors rounded-sm cursor-pointer font-medium">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm">Research Notes</span>
+</div>
+</nav>
+</aside>
+<!-- Main Canvas -->
+<main class="pt-4 pb-32 px-container-padding max-w-5xl mx-auto">
+<!-- Header Section -->
+<section class="mb-section-gap">
+<h2 class="font-bold text-[36px] md:text-[44px] text-slate-primary mb-2 leading-tight">Application Settings</h2>
+<p class="text-[16px] text-slate-secondary max-w-2xl leading-relaxed">Manage your research environment, visual preferences, and authentication tokens for the QuickYT platform.</p>
+</section>
+<!-- Bento Grid for Sections -->
+<div class="flex flex-col gap-[32px]">
+<!-- Account Section -->
+<section id="account">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-slate-primary">manage_accounts</span>
+<h3 class="font-semibold text-[24px] text-slate-primary">Account</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-element-gap">
+<!-- Personal Profile Card -->
+<div class="bg-slate-surface-low p-[24px] rounded-sm group hover:bg-slate-surface-high transition-all duration-200">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h4 class="font-semibold text-[14px] text-slate-primary mb-1">Personal Profile</h4>
+<p class="text-[12px] text-slate-secondary">Update identity and contact info</p>
+</div>
+<span class="material-symbols-outlined text-slate-secondary">edit</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-sm overflow-hidden bg-slate-surface-high flex items-center justify-center">
+<img class="w-full h-full object-cover grayscale" data-alt="A professional monochrome portrait of a researcher in a dark studio setting, soft cinematic lighting highlights the profile features. The background is a deep slate charcoal, maintaining a clean and minimalist professional aesthetic consistent with a high-end research application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPUbsKWdBaexCS3eYFf0mJx_RzTNUw7JTdoCEHYjHOPvc_G8ByUs53aj-SA_EUtpbK4DhMchD71dtjGs8i9zvRLMefG6hHdTA1mbiBeRvIr0Ps7mCho_O4sJnSr0xVNupHhewoI_sdiUez4WeSfFg2BfMl2AxEWzXFlteIqnKzi6QmXxiwSGEglScwM3Or_J3dtc8TVLte5bVO5B_1gKkEuig-rIyI84yd7mao8EqBrKgYqWfUCMcWaOu5pnJuOK2t6BWiFotrm-8r"/>
+</div>
+<div>
+<p class="font-medium text-[14px] text-slate-primary">Dr. Julian Vane</p>
+<p class="text-[12px] text-slate-secondary">julian.v@slate-noir.res</p>
+</div>
+</div>
+</div>
+<!-- Security Card -->
+<div class="bg-slate-surface-low p-[24px] rounded-sm group hover:bg-slate-surface-high transition-all duration-200">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h4 class="font-semibold text-[14px] text-slate-primary mb-1">Security</h4>
+<p class="text-[12px] text-slate-secondary">Two-factor and access logs</p>
+</div>
+<span class="material-symbols-outlined text-slate-secondary">shield</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-[14px] text-slate-secondary">2FA Authentication</span>
+<span class="text-[12px] font-semibold px-2 py-1 rounded-sm bg-slate-primary text-slate-canvas">Active</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[14px] text-slate-secondary">Last Password Change</span>
+<span class="text-[14px] font-medium text-slate-primary">14 Days ago</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interface Section -->
+<section id="interface">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-slate-primary">palette</span>
+<h3 class="font-semibold text-[24px] text-slate-primary">Interface</h3>
+</div>
+<div class="bg-slate-surface-low rounded-sm divide-y divide-slate-canvas overflow-hidden">
+<!-- Cinema Mode Toggle -->
+<div class="flex items-center justify-between p-[24px] hover:bg-slate-surface-high transition-colors">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-slate-secondary mt-1">movie</span>
+<div>
+<p class="font-semibold text-[14px] text-slate-primary">Cinema Mode</p>
+<p class="text-[12px] text-slate-secondary mt-1">Optimizes the video player for large-scale research viewing</p>
+</div>
+</div>
+<label class="toggle-switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<!-- Data Density -->
+<div class="flex flex-col md:flex-row md:items-center justify-between p-[24px] hover:bg-slate-surface-high transition-colors gap-4">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-slate-secondary mt-1">density_medium</span>
+<div>
+<p class="font-semibold text-[14px] text-slate-primary">Data Density</p>
+<p class="text-[12px] text-slate-secondary mt-1">Adjust the vertical rhythm of information panels</p>
+</div>
+</div>
+<div class="flex bg-slate-surface-high p-1 rounded-sm">
+<button class="px-4 py-1.5 text-[12px] font-semibold rounded-sm bg-slate-primary text-slate-canvas">High</button>
+<button class="px-4 py-1.5 text-[12px] font-medium rounded-sm text-slate-secondary hover:text-slate-primary">Normal</button>
+<button class="px-4 py-1.5 text-[12px] font-medium rounded-sm text-slate-secondary hover:text-slate-primary">Relaxed</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Research Engine Section -->
+<section id="engine">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-slate-primary">psychology</span>
+<h3 class="font-semibold text-[24px] text-slate-primary">Research Engine</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-element-gap">
+<!-- API Credentials (span 2) -->
+<div class="md:col-span-2 bg-slate-surface-low p-[24px] rounded-sm">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-semibold text-[14px] text-slate-primary">API Credentials</h4>
+<button class="text-[12px] font-semibold text-slate-secondary hover:text-slate-primary hover:underline transition-all">Regenerate Keys</button>
+</div>
+<div class="space-y-4">
+<div class="space-y-1">
+<label class="text-[10px] uppercase tracking-widest text-slate-secondary font-semibold">Public Key</label>
+<div class="flex items-center gap-2 bg-slate-canvas px-4 py-3 border border-slate-surface-high rounded-sm">
+<code class="text-[12px] text-slate-primary font-mono flex-1">sn_live_9482_x4509_v82</code>
+<span class="material-symbols-outlined text-[16px] text-slate-secondary hover:text-slate-primary cursor-pointer transition-colors">content_copy</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] uppercase tracking-widest text-slate-secondary font-semibold">Secret Hash</label>
+<div class="flex items-center gap-2 bg-slate-canvas px-4 py-3 border border-slate-surface-high rounded-sm">
+<code class="text-[12px] text-slate-secondary font-mono flex-1">••••••••••••••••••••••••</code>
+<span class="material-symbols-outlined text-[16px] text-slate-secondary hover:text-slate-primary cursor-pointer transition-colors">visibility</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Deep Crawl Toggle -->
+<div class="bg-slate-surface-low p-[24px] rounded-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-semibold text-[14px] text-slate-primary">Deep Crawl</h4>
+<span class="material-symbols-outlined text-slate-primary">troubleshoot</span>
+</div>
+<p class="text-[12px] text-slate-secondary leading-relaxed">Enable semantic indexing for non-captioned segments. This increases token usage significantly but provides superior search precision.</p>
+</div>
+<div class="mt-8 flex items-center justify-between bg-slate-canvas p-3 border border-slate-surface-high rounded-sm">
+<span class="text-[12px] font-bold text-slate-primary">OFF</span>
+<label class="toggle-switch">
+<input type="checkbox"/>
+<span class="slider"></span>
+</label>
+<span class="text-[12px] font-bold text-slate-secondary">ON</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Footer Controls -->
+<div class="fixed bottom-0 left-0 right-0 bg-slate-canvas border-t border-slate-surface-high p-4 md:p-6 z-50 flex items-center justify-center md:justify-end gap-4">
+<button class="px-6 py-3 rounded-sm bg-slate-surface-low text-slate-primary font-semibold text-[14px] hover:bg-slate-surface-high transition-all duration-200 active:scale-95 border border-slate-surface-high">
+                Restore Defaults
+            </button>
+<button class="px-8 py-3 rounded-sm bg-slate-primary text-slate-canvas font-semibold text-[14px] hover:bg-slate-secondary transition-all duration-200 active:scale-95">
+                Save All Changes
+            </button>
+</div>
+</main>
+<script>
+        // Micro-interaction for Copy Buttons
+        document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+            if (icon.innerText === 'content_copy') {
+                icon.addEventListener('click', function() {
+                    const originalIcon = this.innerText;
+                    this.innerText = 'check';
+                    this.style.color = '#000000';
+                    setTimeout(() => {
+                        this.innerText = originalIcon;
+                        this.style.color = '';
+                    }, 2000);
+                });
+            }
+        });
+
+        // Toggle Sidebar on mobile
+        const menuBtn = document.querySelector('header button:first-child');
+        const sidebar = document.getElementById('sidebar');
+        
+        menuBtn.addEventListener('click', () => {
+            if (sidebar.classList.contains('hidden')) {
+                sidebar.classList.remove('hidden');
+                sidebar.classList.add('flex');
+            } else {
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('flex');
+            }
+        });
+    </script>
+</body></html>

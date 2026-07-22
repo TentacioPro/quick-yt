@@ -1,0 +1,256 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Video Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#ffe2ab",
+                    "outline": "#9c8f78",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#fbbc00",
+                    "on-surface-variant": "#d4c5ab",
+                    "secondary-fixed": "#e5e2e1",
+                    "tertiary-fixed": "#aaedff",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed": "#001f26",
+                    "tertiary-container": "#04dcff",
+                    "tertiary": "#b4efff",
+                    "surface-bright": "#393939",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-dim": "#131313",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed": "#ffdfa0",
+                    "surface-container": "#201f1f",
+                    "on-primary-container": "#6d5000",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "surface": "#131313",
+                    "tertiary-fixed-dim": "#00d9fc",
+                    "secondary-container": "#474746",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-primary": "#795900",
+                    "on-tertiary": "#003640",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed": "#261a00",
+                    "outline-variant": "#504532",
+                    "surface-variant": "#353534",
+                    "on-tertiary-container": "#005d6d",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary": "#313030",
+                    "surface-container-highest": "#353534",
+                    "on-primary": "#402d00",
+                    "secondary": "#c8c6c5",
+                    "on-primary-fixed-variant": "#5c4300",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "primary-fixed-dim": "#fbbc00",
+                    "on-secondary-container": "#b7b5b4",
+                    "primary-container": "#ffbf00",
+                    "background": "#131313"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "inline-gap": "12px",
+                    "container-margin-desktop": "64px",
+                    "container-margin-mobile": "20px",
+                    "unit": "4px",
+                    "stack-gap": "24px",
+                    "section-gap": "64px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-xl": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "label-md": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .noir-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        .amber-accent {
+            color: #ffbf00;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(12px);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #353534;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffbf00;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<main class="px-container-mobile max-w-4xl mx-auto space-y-section-gap pt-4"><header class="sticky top-0 z-50 flex items-center justify-between px-container-mobile py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 -mx-container-mobile mb-8">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-bright rounded-full transition-colors active:scale-95 flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-[0.1em] uppercase">Video Insights</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-bright rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+<button class="p-2 hover:bg-surface-bright rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Video Title & Meta with Cinematic Background -->
+<section class="relative -mx-container-mobile px-container-mobile py-16 mb-8 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Video Thumbnail" class="w-full h-full object-cover opacity-40 blur-md scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKAiOQ6zGRVuCGJ_5gmEU1fkuPlwg1klv1tGF6m_l3V5qqt0LeI69oedTlsxVQz8dM_ixBxudlWaF0h9QUeQH1MfHZcFfX0XszvjkGWqssYOhJddXRMRZlS-Arp9MTUIRkqZzwNOMbzeDLp-8P-aCcXA1U_hqc1eNoHqV-LvCh5BVHL2YVP_aaIKKUyn_waoVJ_CqVnoET4SRehUtf8rOJQ5bk3WbkRmeB1PIEQJBEAgczLyV0oDHZrutu3NUzHCpOjKtOFllKT1s">
+<div class="absolute inset-0 bg-gradient-to-b from-surface/30 via-surface/80 to-surface bg-black/40"></div>
+</div>
+<div class="relative z-10 space-y-stack-gap">
+<h2 class="font-headline-xl text-headline-xl leading-tight text-on-surface">Advanced Tailwind CSS Techniques</h2>
+<p class="font-mono text-sm text-outline tracking-tight break-all opacity-70">https://youtube.com/watch?v=dQw4w9WgXcQ</p>
+<!-- Quick Actions Row -->
+<div class="flex flex-wrap gap-inline-gap pt-4">
+<button aria-label="Re-Ingest video data" class="flex items-center gap-2 bg-surface-container-high/80 backdrop-blur px-6 py-3 rounded-full hover:bg-surface-bright transition-all active:scale-95 group border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary group-hover:rotate-180 transition-transform duration-500">refresh</span>
+<span class="font-label-md text-on-surface">Re-Ingest</span>
+</button>
+<button aria-label="Share video" class="flex items-center gap-2 bg-surface-container-high/80 backdrop-blur px-6 py-3 rounded-full hover:bg-surface-bright transition-all active:scale-95 group border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary">share</span>
+<span class="font-label-md text-on-surface">Share</span>
+</button>
+<button aria-label="Delete video" class="flex items-center gap-2 bg-surface-container-high/80 backdrop-blur px-6 py-3 rounded-full hover:bg-error-container/20 transition-all active:scale-95 group border border-outline-variant/30">
+<span class="material-symbols-outlined text-error">delete</span>
+<span class="font-label-md text-error">Delete</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Neural Summary -->
+<section class="space-y-stack-gap">
+<header class="flex items-center gap-3">
+<h3 class="font-label-md text-primary tracking-[0.2em] uppercase">Neural Summary</h3>
+</header>
+<div class="bg-surface-container-low p-8 rounded-xl border-l-2 border-primary/20 space-y-6">
+<p class="text-body-lg text-on-surface leading-relaxed">
+                    The discourse delves into the orchestration of utility-first architectures, specifically focusing on the optimization of the Just-In-Time (JIT) compiler. It highlights the strategic use of arbitrary value support to bypass traditional design tokens when surgical precision is required in layout composition.
+                </p>
+<p class="text-body-lg text-on-surface leading-relaxed">
+                    Furthermore, the session explores advanced directive implementation, such as <code class="font-mono text-primary bg-surface-bright px-1.5 py-0.5 rounded">@apply</code> and <code class="font-mono text-primary bg-surface-bright px-1.5 py-0.5 rounded">@theme</code>, for maintaining archival consistency across complex component trees without introducing CSS bloat or specificity conflicts.
+                </p>
+</div>
+</section>
+<!-- Archival Transcript -->
+<section class="space-y-stack-gap">
+<header class="flex items-center gap-3">
+<h3 class="font-label-md text-primary tracking-[0.2em] uppercase">Archival Transcript</h3>
+</header>
+<div class="relative group">
+<!-- Atmospheric background element -->
+<div class="absolute -inset-4 bg-gradient-to-b from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<div class="relative bg-surface-container rounded-xl h-[400px] overflow-y-auto p-6 md:p-8 space-y-8 font-body-md text-on-surface-variant gap-4">
+<div class="flex gap-4">
+<span class="font-mono text-[#ffbf00] flex-shrink-0 w-16">[00:12]</span>
+<p class="">Welcome back to the deep dive series. Today we are stripping away the abstractions of standard UI libraries and focusing on the raw power of utility primitives.</p>
+</div>
+<div class="flex gap-4">
+<span class="font-mono text-[#ffbf00] flex-shrink-0 w-16">[00:45]</span>
+<p class="">The core philosophy of Tailwind isn't just about speed; it's about context. When you define a class like <span class="bg-surface-container-highest px-2 py-1 rounded font-mono text-on-surface italic">`flex-col-reverse`</span>, you aren't just styling an element, you are documenting its behavior.</p>
+</div>
+<div class="flex gap-4">
+<span class="font-mono text-[#ffbf00] flex-shrink-0 w-16">[01:22]</span>
+<p class="">Let's look at the config. Most developers treat the tailwind.config.js file as a simple JSON object. But it's a programmatic blueprint. You can inject logic, handle dynamic color schemes, and even integrate with external APIs to generate your design system tokens on the fly.</p>
+</div>
+<div class="flex gap-4">
+<span class="font-mono text-[#ffbf00] flex-shrink-0 w-16">[02:10]</span>
+<p class="">Notice how we handle negative space. In this 'Intellectual Noir' layout we are building, whitespace is as active as the content itself. We use margins not just for separation, but for hierarchy.</p>
+</div>
+<div class="flex gap-4">
+<span class="font-mono text-[#ffbf00] flex-shrink-0 w-16">[03:05]</span>
+<p class="">When you transition to container queries, you move from a screen-first mentality to a component-first mentality. This is the future of scalable architecture in large-scale React and Next.js applications.</p>
+</div>
+<div class="flex gap-4">
+<span class="font-mono text-[#ffbf00] flex-shrink-0 w-16">[04:15]</span>
+<p class="">The transcript continues into the specifics of PostCSS processing and how to minimize the bundle size while maintaining a rich feature set using the purge logic.</p>
+</div>
+<!-- Fading effect at bottom -->
+<div class="sticky bottom-0 left-0 w-full h-12 bg-gradient-to-t from-surface-container to-transparent pointer-events-none"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<script>
+        // Micro-interactions for scrolling
+        document.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-xl', 'bg-surface-container/90', 'backdrop-blur-md');
+                } else {
+                    header.classList.remove('shadow-xl', 'bg-surface-container/90', 'backdrop-blur-md');
+                }
+            }
+        });
+
+        // Simulating transcript timestamp clicks
+        document.querySelectorAll('.font-mono.text-\\[\\#ffbf00\\]').forEach(time => {
+            time.addEventListener('click', () => {
+                time.classList.add('scale-110');
+                setTimeout(() => time.classList.remove('scale-110'), 200);
+            });
+        });
+    </script>
+
+
+</body></html>

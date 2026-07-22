@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickYT - Insights Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#001c3b",
+                        "surface-container-highest": "#32353c",
+                        "surface-tint": "#d5c5a6",
+                        "tertiary-fixed-dim": "#c5c5d9",
+                        "primary": "#ffffff",
+                        "tertiary-fixed": "#e2e1f6",
+                        "surface-dim": "#10131a",
+                        "on-surface": "#e0e2ec",
+                        "on-secondary-container": "#98b7e9",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#0a315b",
+                        "background": "#10131a",
+                        "tertiary-container": "#e2e1f6",
+                        "outline": "#979085",
+                        "inverse-primary": "#695d44",
+                        "on-primary": "#392f1a",
+                        "surface-container-low": "#191c23",
+                        "secondary-container": "#274773",
+                        "inverse-on-surface": "#2d3038",
+                        "on-surface-variant": "#cec5b9",
+                        "on-background": "#e0e2ec",
+                        "secondary-fixed-dim": "#a9c8fb",
+                        "surface-bright": "#363941",
+                        "inverse-surface": "#e0e2ec",
+                        "on-error": "#690005",
+                        "tertiary": "#ffffff",
+                        "on-tertiary": "#2e2f3f",
+                        "on-tertiary-container": "#626375",
+                        "secondary": "#a9c8fb",
+                        "primary-container": "#f2e1c1",
+                        "on-secondary-fixed-variant": "#274773",
+                        "surface-container": "#1d2027",
+                        "secondary-fixed": "#d5e3ff",
+                        "on-primary-container": "#6f6349",
+                        "surface-container-lowest": "#0b0e15",
+                        "surface": "#10131a",
+                        "on-primary-fixed-variant": "#50462e",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#272a31",
+                        "primary-fixed": "#f2e1c1",
+                        "on-tertiary-fixed": "#191a29",
+                        "error-container": "#93000a",
+                        "outline-variant": "#4b463d",
+                        "surface-variant": "#32353c",
+                        "on-tertiary-fixed-variant": "#454556",
+                        "on-primary-fixed": "#231a07",
+                        "primary-fixed-dim": "#d5c5a6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "section-gap": "32px",
+                        "sidebar-width": "280px",
+                        "gutter": "24px",
+                        "element-gap": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-white text-black antialiased font-sans overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 z-40 bg-transparent flex items-center px-container-padding h-[64px]">
+<button class="text-black cursor-pointer active:opacity-80 p-2 hover:bg-[#E0E0E0] transition-colors rounded-sm -ml-2" id="menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-7xl mx-auto px-gutter pb-[32px]">
+<!-- Page Header -->
+<div class="mb-[32px]">
+<h1 class="text-headline-lg font-bold text-black mb-2 tracking-tight">Insights Feed</h1>
+<p class="text-body-lg text-[#424242]">Chronological timeline of extracted research patterns</p>
+</div>
+<!-- Feed Content -->
+<div class="flex flex-col gap-[32px]">
+<!-- Note Card 1 -->
+<article class="bg-[#F5F5F5] rounded-sm p-[24px] flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-headline-md font-headline-md text-black leading-tight mb-2">Blade Runner 2049 - Visual Breakdown</h2>
+<div class="flex items-center gap-2 text-[#424242]">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="text-label-md font-label-md font-mono">14:32</span>
+</div>
+</div>
+<button class="text-[#424242] hover:text-black transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<p class="text-body-md font-body-md text-[#424242]">
+                        Deakins utilizes stark, contrasting lighting here to separate K from the background. The use of practicals in the foreground creates a tangible depth. Notice how the orange hue dominates, contrasting sharply with the bleak environments shown earlier.
+                    </p>
+<div class="flex gap-2 mt-2">
+<span class="bg-[#E0E0E0] px-3 py-1 rounded-sm text-label-md font-label-md text-black uppercase tracking-tighter font-bold">Cinematography</span>
+<span class="bg-[#E0E0E0] px-3 py-1 rounded-sm text-label-md font-label-md text-black uppercase tracking-tighter font-bold">Lighting</span>
+</div>
+</article>
+<!-- Note Card 2 -->
+<article class="bg-[#F5F5F5] rounded-sm p-[24px] flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-headline-md font-headline-md text-black leading-tight mb-2">Dune (2021) Soundscape Analysis</h2>
+<div class="flex items-center gap-2 text-[#424242]">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="text-label-md font-label-md font-mono">08:15</span>
+</div>
+</div>
+<button class="text-[#424242] hover:text-black transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<p class="text-body-md font-body-md text-[#424242]">
+                        The use of sub-bass in this scene is overwhelming but intentional. The 'Voice' isn't just loud; it's physically felt. Zimmer's score drops out completely before the line delivery, creating a vacuum of silence that makes the impact far greater.
+                    </p>
+<div class="flex gap-2 mt-2">
+<span class="bg-[#E0E0E0] px-3 py-1 rounded-sm text-label-md font-label-md text-black uppercase tracking-tighter font-bold">Sound Design</span>
+<span class="bg-[#E0E0E0] px-3 py-1 rounded-sm text-label-md font-label-md text-black uppercase tracking-tighter font-bold">Score</span>
+</div>
+</article>
+<!-- Note Card 3 -->
+<article class="bg-[#F5F5F5] rounded-sm p-[24px] flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-headline-md font-headline-md text-black leading-tight mb-2">Editing Rhythm in Baby Driver</h2>
+<div class="flex items-center gap-2 text-[#424242]">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="text-label-md font-label-md font-mono">02:45</span>
+</div>
+</div>
+<button class="text-[#424242] hover:text-black transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<p class="text-body-md font-body-md text-[#424242]">
+                        Every single action syncs perfectly with the downbeat of 'Bellbottoms'. The wipers, the steering wheel taps, even the gear shifts. This isn't just background music; the music is the metronome for the entire sequence's cut rate.
+                    </p>
+<div class="flex gap-2 mt-2 flex-wrap">
+<span class="bg-[#E0E0E0] px-3 py-1 rounded-sm text-label-md font-label-md text-black uppercase tracking-tighter font-bold">Editing</span>
+<span class="bg-[#E0E0E0] px-3 py-1 rounded-sm text-label-md font-label-md text-black uppercase tracking-tighter font-bold">Pacing</span>
+<span class="bg-[#E0E0E0] px-3 py-1 rounded-sm text-label-md font-label-md text-black uppercase tracking-tighter font-bold">Diegetic Sound</span>
+</div>
+</article>
+<div class="flex justify-center mt-[32px]">
+<button class="bg-black text-white px-8 py-3 rounded-sm font-label-lg font-semibold hover:bg-[#424242] transition-colors active:scale-95">
+                         Load Older Notes
+                     </button>
+</div>
+</div>
+</main>
+</body></html>

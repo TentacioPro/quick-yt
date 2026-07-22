@@ -33,3 +33,16 @@ export type Video = typeof videos.$inferSelect;
 export type NewVideo = typeof videos.$inferInsert;
 export type AuditLog = typeof auditLogs.$inferSelect;
 export type NewAuditLog = typeof auditLogs.$inferInsert;
+
+export const videoNotes = sqliteTable('video_notes', {
+  id: text('id').primaryKey(),
+  videoId: text('video_id').notNull().references(() => videos.id, { onDelete: 'cascade' }),
+  content: text('content').notNull(),
+  timestamp: integer('timestamp').notNull(),
+  synced: integer('synced').default(0),
+  videoTimestamp: integer('video_timestamp'),
+  tags: text('tags'),
+});
+
+export type VideoNote = typeof videoNotes.$inferSelect;
+export type NewVideoNote = typeof videoNotes.$inferInsert;

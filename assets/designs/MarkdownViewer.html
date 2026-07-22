@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickYT - Markdown File Viewer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-bright": "#393939",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#474746",
+                        "on-secondary-fixed-variant": "#474746",
+                        "tertiary-fixed-dim": "#00d9fc",
+                        "secondary-fixed": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#fbbc00",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-container": "#b7b5b4",
+                        "outline": "#9c8f78",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "surface-container-highest": "#353534",
+                        "tertiary-fixed": "#aaedff",
+                        "on-tertiary-fixed": "#001f26",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-container": "#005d6d",
+                        "on-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "secondary": "#c8c6c5",
+                        "primary-fixed": "#ffdfa0",
+                        "background": "#131313",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container-high": "#2a2a2a",
+                        "outline-variant": "#504532",
+                        "on-primary-fixed-variant": "#5c4300",
+                        "tertiary-container": "#04dcff",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-primary": "#795900",
+                        "primary-fixed-dim": "#fbbc00",
+                        "on-surface-variant": "#d4c5ab",
+                        "tertiary": "#b4efff",
+                        "on-primary-container": "#6d5000",
+                        "on-secondary": "#313030",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary": "#003640",
+                        "on-primary": "#402d00",
+                        "surface": "#131313",
+                        "primary-container": "#ffbf00",
+                        "surface-variant": "#353534",
+                        "surface-container": "#201f1f",
+                        "on-background": "#e5e2e1",
+                        "primary": "#ffe2ab",
+                        "on-primary-fixed": "#261a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-gap": "16px",
+                        "container-margin-mobile": "20px",
+                        "section-gap": "48px",
+                        "inline-gap": "12px",
+                        "container-margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #121212; /* Base Noir */
+            color: #e5e2e1;
+        }
+        
+        /* Markdown Specific Styles based on guidelines */
+        .prose h1, .prose h2, .prose h3 {
+            font-family: 'Playfair Display', serif;
+            color: #ffe2ab; /* Primary/Amber */
+            margin-top: 2em;
+            margin-bottom: 1em;
+            line-height: 1.2;
+        }
+        
+        .prose h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .prose h2 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .prose h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .prose p, .prose li {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #e5e2e1;
+            margin-bottom: 1em;
+        }
+
+        .prose strong {
+            color: #ffe2ab;
+            font-weight: 600;
+        }
+
+        .prose ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 2em;
+        }
+        
+        .prose ul li {
+            position: relative;
+            padding-left: 1.5em;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .prose ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #fbbc00; /* Amber accent */
+            font-weight: bold;
+        }
+
+        .prose pre {
+            background-color: #1A1A1A; /* Raised surface */
+            padding: 24px;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+
+        .prose code {
+            font-family: monospace;
+            color: #fbbc00; /* Amber text for code */
+            font-size: 14px;
+        }
+
+        .prose p code {
+            background-color: #1A1A1A;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid #fbbc00;
+            padding-left: 1em;
+            font-style: italic;
+            color: #b7b5b4;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface shadow-none flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop h-16 bg-surface-container-low dark:bg-surface-container-low">
+<div class="flex items-center gap-inline-gap">
+<button aria-label="Go back" class="text-primary dark:text-primary hover:opacity-80 transition-opacity cursor-pointer active:scale-95 flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary m-0 tracking-tight">Q3_Channel_Audit_Report.md</h1>
+</div>
+<!-- Trailing Avatar (using placeholder image logic per instructions) -->
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant/30 flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A small circular avatar image showing a professional headshot of a user in a dimly lit, high-contrast 'noir' style environment. The lighting features sharp amber accents against deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzh2uU6k48p8LIR54ETcgH5VrCpwdBP65QmnkS0qp53uavub5KGBsx3nWp92_5pZC2vD6sc0psMJFjpM3XH5NYKXSkOBCBmS7kEUsdI1q0RkfmDORjK3uI6Us-UiAVauZpg4az6Fe95KvpK6Rg75QEevrxz_ZDBTeQQ3_HIYFxqETQoL-wES0uL7K50MCaWWvPJzxkrZm9wf4gbC3JqbBxOrOovOXRZG42pPZyvmHQ2K8uPsR9KWRuh_SHv9esAeVrzaI49N0Qhyw"/>
+</div>
+</header>
+<!-- Main Content Canvas (Navigation suppressed as this is a focused task/document view) -->
+<main class="flex-grow pt-24 pb-24 px-container-margin-mobile md:px-container-margin-desktop flex justify-center">
+<!-- Content Container - mimicking a minimalist editorial page -->
+<div class="w-full max-w-3xl bg-[#1A1A1A] p-6 md:p-12 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-2 mb-8 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+<span>Generated: 2023-10-27</span>
+<span class="mx-2 text-surface-bright">•</span>
+<span class="px-2 py-1 bg-[#242424] text-on-surface rounded">CONFIDENTIAL</span>
+</div>
+<article class="prose w-full">
+<h1>Q3 Channel Performance &amp; Content Audit</h1>
+<p>This document details the exhaustive review of video assets, metadata optimization strategies, and audience retention metrics for the third quarter. The findings dictate a necessary shift in our editorial pacing to maintain authoritative positioning.</p>
+<h2>1. Executive Summary</h2>
+<p>The channel experienced a nominal increase in impression CTR, however, average view duration (AVD) saw a noticeable plateau in the latter half of the quarter. <strong>Immediate action is required</strong> regarding thumbnail contrast ratios and hook structuring.</p>
+<blockquote>"In an ecosystem saturated with noise, silence and deliberate pacing become our most potent engagement tools." - Strategy Lead</blockquote>
+<h2>2. Key Findings: Structural Deficiencies</h2>
+<p>An analysis of the last 40 uploads revealed a consistent pattern of viewer drop-off occurring precisely at the transition between the introductory hook and the core exposition. We are failing to bridge the narrative gap effectively.</p>
+<ul>
+<li><strong>Hook Fatigue:</strong> Over-reliance on high-energy, rapid-cut introductions is alienating our core demographic seeking deep-dive analysis.</li>
+<li><strong>Pacing Mismatch:</strong> The transition from <code>tempo: fast</code> to <code>tempo: slow</code> is too jarring.</li>
+<li><strong>Metadata Misalignment:</strong> Tags and descriptions are currently optimized for breadth rather than depth, attracting low-retention viewers.</li>
+</ul>
+<h2>3. Proposed Intervention: The 'Noir' Framework</h2>
+<p>We propose adopting a cinematic, 'Noir' aesthetic for the upcoming content slate. This involves reducing overall scene luminance, increasing contrast, and utilizing negative space to emphasize key data points.</p>
+<h3>Implementation Code Snippet (Video Player Skin)</h3>
+<p>Update the custom player CSS to reflect the new tonal requirements:</p>
+<pre><code>/* Player UI Override - Q4 Specification */
+.yt-player-ui {
+  --base-lum: #121212;
+  --accent-primary: #fbbc00;
+  
+  background-color: var(--base-lum);
+  box-shadow: inset 0 0 120px rgba(0,0,0,0.9);
+}
+
+.yt-progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.yt-progress-bar-loaded {
+  background: var(--accent-primary);
+  box-shadow: 0 0 8px var(--accent-primary);
+}</code></pre>
+<h2>4. Next Steps</h2>
+<p>All editors must review the updated style guide located in <code>/assets/guidelines/q4_aesthetic.pdf</code> before commencing work on the November slate. A mandatory review session is scheduled for Friday.</p>
+</article>
+</div>
+</main>
+</body></html>

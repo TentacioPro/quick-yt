@@ -1,0 +1,318 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Profile Settings</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#ffe2ab",
+                    "outline": "#9c8f78",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#fbbc00",
+                    "on-surface-variant": "#d4c5ab",
+                    "secondary-fixed": "#e5e2e1",
+                    "tertiary-fixed": "#aaedff",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed": "#001f26",
+                    "tertiary-container": "#04dcff",
+                    "tertiary": "#b4efff",
+                    "surface-bright": "#393939",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-dim": "#131313",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed": "#ffdfa0",
+                    "surface-container": "#201f1f",
+                    "on-primary-container": "#6d5000",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "surface": "#131313",
+                    "tertiary-fixed-dim": "#00d9fc",
+                    "secondary-container": "#474746",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-primary": "#795900",
+                    "on-tertiary": "#003640",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed": "#261a00",
+                    "outline-variant": "#504532",
+                    "surface-variant": "#353534",
+                    "on-tertiary-container": "#005d6d",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary": "#313030",
+                    "surface-container-highest": "#353534",
+                    "on-primary": "#402d00",
+                    "secondary": "#c8c6c5",
+                    "on-primary-fixed-variant": "#5c4300",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "primary-fixed-dim": "#fbbc00",
+                    "on-secondary-container": "#b7b5b4",
+                    "primary-container": "#ffbf00",
+                    "background": "#131313"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "inline-gap": "12px",
+                    "container-margin-desktop": "64px",
+                    "container-margin-mobile": "20px",
+                    "unit": "4px",
+                    "stack-gap": "16px",
+                    "section-gap": "72px"
+            },
+            "fontFamily": {
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Playfair Display"
+                    ],
+                    "headline-xl": [
+                            "Playfair Display"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Playfair Display"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Playfair Display"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-xl": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ffbf00;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+            background-color: #131313;
+        }
+        /* Hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Custom bottom bar for focus state */
+        .intellectual-input:focus-within .input-accent {
+            width: 100%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-low dark:bg-surface-container-low">
+<div class="flex items-center px-container-margin-mobile h-16 w-full max-w-screen-xl mx-auto">
+<button class="mr-4 text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 transition-transform"><span class="material-symbols-outlined">menu</span></button>
+<h1 class="font-headline-md text-headline-md text-primary-fixed-dim">Profile Settings</h1>
+</div>
+</header>
+<main class="pt-24 px-container-margin-mobile max-w-xl mx-auto">
+<!-- Header Profile Card -->
+<section class="mb-section-gap flex flex-col items-center text-center">
+<div class="relative w-24 h-24 mb-stack-gap">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container-high ring-2 ring-primary-fixed-dim ring-offset-4 ring-offset-surface">
+<img class="w-full h-full object-cover" data-alt="A sophisticated, cinematic studio portrait of a scholar-like figure in a dark room. The lighting is dramatic and high-contrast, casting deep shadows across the face, while a soft amber glow illuminates one side. The background is a blurred bookshelf, maintaining the intellectual noir aesthetic with a monochromatic palette and warm, candle-like highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrPPz0lsjF04ltu0OND18E-gWSlXcx5VNwGB-IFgW8R37nGP3_2JFy2yVneSGCEP9OqE5llAg0Qw2i1AnDHpyAZvKFWNM1L4pjTrc6msbL3L9O535o07WKC60jUu0cmYWY3GkmVNRVr4vo1RXuj2hZIskJVeD_AYj3JkOFqXuXcKoXQXABmUcxJzwKGwxYp2KSgBsZNVtmATOy3vZsPrk_NkQoZLx7yk77CbwxIibXxzj24cQg_QIkeMFWYc8v1CGVOwufc8nR16s">
+</div>
+<div class="absolute bottom-0 right-0 bg-primary-container text-on-primary-container p-1 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</div>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile text-on-surface">Julian Thorne</h2>
+<p class="text-on-surface-variant font-label-md tracking-widest mt-1">CURATOR LVL. 04</p>
+</section>
+<!-- Account Section -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-inline-gap mb-stack-gap">
+<span class="material-symbols-outlined text-primary-fixed-dim">person</span>
+<h3 class="font-headline-md text-headline-md">Account</h3>
+</div>
+<div class="space-y-stack-gap">
+<!-- Username Input -->
+<div class="intellectual-input relative">
+<label class="block text-label-sm text-on-surface-variant mb-1 uppercase tracking-tighter">Username</label>
+<input aria-label="Username" class="w-full bg-surface-container-low border-none focus:ring-0 text-on-surface py-3 px-4 rounded-t-lg transition-colors" type="text" value="julian_thorne">
+<div class="input-accent absolute bottom-0 left-0 h-[2px] bg-primary-container w-0 transition-all duration-300"></div>
+</div>
+<!-- Email Input -->
+<div class="intellectual-input relative">
+<label class="block text-label-sm text-on-surface-variant mb-1 uppercase tracking-tighter">Email Address</label>
+<input aria-label="Email Address" class="w-full bg-surface-container-low border-none focus:ring-0 text-on-surface py-3 px-4 rounded-t-lg transition-colors" type="email" value="thorne.j@quickyt.edu">
+<div class="input-accent absolute bottom-0 left-0 h-[2px] bg-primary-container w-0 transition-all duration-300"></div>
+</div>
+</div>
+</section>
+<!-- Appearance Section -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-inline-gap mb-stack-gap">
+<span class="material-symbols-outlined text-primary-fixed-dim">palette</span>
+<h3 class="font-headline-md text-headline-md">Appearance</h3>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg flex items-center justify-between">
+<div>
+<h4 class="text-on-surface font-label-md">Dark Mode Override</h4>
+<p class="text-label-sm text-on-surface-variant mt-1">Force deep-tone palette across all views.</p>
+</div>
+<div class="relative inline-block w-12 h-6 transition duration-200 ease-in">
+<input aria-checked="true" checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-container-high border-2 border-surface appearance-none cursor-pointer z-10 checked:right-0 transition-all duration-300" id="toggle-dark" role="switch" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer transition-colors duration-300" for="toggle-dark">
+<span class="toggle-dot block h-6 w-6"></span>
+</label>
+</div>
+</div>
+</section>
+<!-- Language Section -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-inline-gap mb-stack-gap">
+<span class="material-symbols-outlined text-primary-fixed-dim">translate</span>
+<h3 class="font-headline-md text-headline-md">Language</h3>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg flex items-center justify-between cursor-pointer hover:bg-surface-container transition-colors">
+<div>
+<h4 class="text-on-surface font-label-md">Default Language</h4>
+<p class="text-label-sm text-on-surface-variant mt-1">Used for content recommendations and UI.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary-fixed-dim font-body-md">English</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Notifications Section -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-inline-gap mb-stack-gap">
+<span class="material-symbols-outlined text-primary-fixed-dim">notifications</span>
+<h3 class="font-headline-md text-headline-md">Notifications</h3>
+</div>
+<fieldset class="space-y-4 border-none p-0 m-0"><legend class="sr-only">Notification Preferences</legend><div class="bg-surface-container-low p-5 rounded-lg flex items-center justify-between"><h4 class="text-on-surface font-label-md">Push Notifications</h4><div class="relative inline-block w-12 h-6 transition duration-200 ease-in"><input aria-checked="true" checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-container-high border-2 border-surface appearance-none cursor-pointer z-10 checked:right-0 transition-all duration-300" id="toggle-push" role="switch" type="checkbox"><label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer transition-colors duration-300" for="toggle-push"><span class="toggle-dot block h-6 w-6"></span></label></div></div><div class="bg-surface-container-low p-5 rounded-lg flex items-center justify-between"><h4 class="text-on-surface font-label-md">Email Alerts</h4><div class="relative inline-block w-12 h-6 transition duration-200 ease-in"><input aria-checked="false" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-container-high border-2 border-surface appearance-none cursor-pointer z-10 checked:right-0 transition-all duration-300" id="toggle-email" role="switch" type="checkbox"><label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer transition-colors duration-300" for="toggle-email"><span class="toggle-dot block h-6 w-6"></span></label></div></div></fieldset>
+</section>
+<!-- Delete Account (Editorial style) -->
+<section class="mt-section-gap text-center px-4 mb-section-gap">
+<button class="text-on-surface-variant hover:text-error transition-colors font-label-md tracking-widest text-[11px] uppercase opacity-40 hover:opacity-100">
+                Terminate Personal Archive &amp; Credentials
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<script>
+        // Simple micro-interactions
+        document.querySelectorAll('input[type="text"], input[type="email"]').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('.input-accent').style.width = '100%';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('.input-accent').style.width = '0';
+            });
+        });
+
+        // Toggle state simulated behavior
+        document.querySelectorAll('.toggle-checkbox').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                if(this.id === 'toggle-dark') {
+                    // Logically we would trigger theme changes here
+                    console.log('Dark Mode Override:', this.checked);
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

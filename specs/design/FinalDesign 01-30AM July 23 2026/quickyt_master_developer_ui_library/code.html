@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design System &amp; UI Component Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#e4e2e1",
+                        "primary-fixed": "#e2e2e2",
+                        "on-primary-container": "#848484",
+                        "surface-bright": "#f9f9f9",
+                        "outline": "#7e7576",
+                        "surface-dim": "#dadada",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdeac",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "primary": "#000000",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed": "#281900",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#5e5e5e",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#af7a00",
+                        "surface-container": "#eeeeee",
+                        "tertiary-fixed-dim": "#ffba38",
+                        "on-surface": "#1a1c1c",
+                        "tertiary-container": "#281900",
+                        "primary-container": "#1b1b1b",
+                        "outline-variant": "#cfc4c5",
+                        "surface-container-highest": "#e2e2e2",
+                        "inverse-surface": "#2f3131",
+                        "background": "#ffffff",
+                        "on-secondary-container": "#656464",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-primary-fixed-variant": "#474747",
+                        "inverse-primary": "#c6c6c6",
+                        "tertiary": "#000000",
+                        "on-secondary-fixed-variant": "#474747",
+                        "secondary": "#5f5e5e",
+                        "surface-container-low": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "secondary-container": "#e4e2e1",
+                        "surface-variant": "#e2e2e2",
+                        "surface": "#ffffff",
+                        "on-surface-variant": "#4c4546",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "card-padding": "24px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "section-v": "32px",
+                        "sidebar-width": "280px",
+                        "container-padding": "24px",
+                        "section-gap": "32px",
+                        "element-gap": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Newsreader"],
+                        "utility-mono": ["monospace"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Newsreader"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "utility-mono": ["13px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Specific overrides for borderless design */
+        * {
+            border-color: transparent !important;
+            box-shadow: none !important;
+        }
+        
+        /* Active indicator line */
+        .active-indicator {
+            position: relative;
+        }
+        .active-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #FFB300;
+        }
+        
+        .active-nav-item {
+            position: relative;
+        }
+        .active-nav-item::before {
+            content: '';
+            position: absolute;
+            left: -16px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 24px;
+            width: 4px;
+            background-color: #FFB300;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Input specific styling */
+        input:not([type="checkbox"]):not([type="radio"]), textarea, select {
+            background-color: #F5F5F5 !important;
+            border: none !important;
+            border-bottom: 2px solid transparent !important;
+            border-radius: 4px 4px 0 0 !important;
+            padding: 12px 16px !important;
+        }
+        input:not([type="checkbox"]):not([type="radio"]):focus, textarea:focus, select:focus {
+            border-bottom: 2px solid #FFB300 !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .code-block {
+            background-color: #F5F5F5;
+            padding: 16px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+        }
+        
+        .comp-preview {
+            background-color: #FFFFFF;
+            padding: 24px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface w-full top-0 sticky flex justify-between items-center px-container-padding h-16 w-full z-50">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md text-primary dark:text-primary">Design System V1</span>
+<div class="hidden md:flex gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md cursor-pointer active:opacity-80" href="#">Foundations</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container transition-colors duration-200 font-body-md text-body-md cursor-pointer active:opacity-80" href="#">Components</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container transition-colors duration-200 font-body-md text-body-md cursor-pointer active:opacity-80" href="#">Patterns</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container transition-colors duration-200 font-body-md text-body-md cursor-pointer active:opacity-80" href="#">Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer text-primary dark:text-primary hover:bg-surface-container transition-colors duration-200 rounded-full p-2">dark_mode</span>
+<span class="material-symbols-outlined cursor-pointer text-primary dark:text-primary hover:bg-surface-container transition-colors duration-200 rounded-full p-2">settings</span>
+</div>
+</nav>
+<!-- SideNavBar & Main Content Wrapper -->
+<div class="flex max-w-[1440px] mx-auto w-full">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low dark:bg-surface-container-low hidden lg:flex flex-col border-r-0 h-[calc(100vh-64px)] py-section-gap w-sidebar-width fixed left-0 top-16 z-40 overflow-y-auto">
+<div class="px-container-padding mb-8">
+<h2 class="font-headline-md text-headline-md text-primary">Core Framework</h2>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">v2.4.0-stable</p>
+<button class="w-full mt-4 bg-primary text-on-primary py-2 rounded font-label-md text-label-md hover:opacity-90 transition-opacity">View Github</button>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Anchor Links -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 flex items-center gap-element-gap px-4 py-3 cursor-pointer font-label-md text-label-md rounded-lg" href="#introduction">
+<span class="material-symbols-outlined">info</span>
+                    Introduction
+                </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 flex items-center gap-element-gap px-4 py-3 cursor-pointer font-label-md text-label-md rounded-lg" href="#layout-grid">
+<span class="material-symbols-outlined">grid_view</span>
+                    Layout &amp; Grid
+                </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 flex items-center gap-element-gap px-4 py-3 cursor-pointer font-label-md text-label-md rounded-lg" href="#typography">
+<span class="material-symbols-outlined">text_fields</span>
+                    Typography
+                </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 flex items-center gap-element-gap px-4 py-3 cursor-pointer font-label-md text-label-md rounded-lg" href="#colors">
+<span class="material-symbols-outlined">palette</span>
+                    Colors
+                </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 flex items-center gap-element-gap px-4 py-3 cursor-pointer font-label-md text-label-md rounded-lg" href="#iconography">
+<span class="material-symbols-outlined">token</span>
+                    Iconography
+                </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 flex items-center gap-element-gap px-4 py-3 cursor-pointer font-label-md text-label-md rounded-lg" href="#interaction-matrix">
+<span class="material-symbols-outlined">layers</span>
+                    Interaction Matrix
+                </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 flex items-center gap-element-gap px-4 py-3 cursor-pointer font-label-md text-label-md rounded-lg" href="#advanced-components">
+<span class="material-symbols-outlined">widgets</span>
+                    Advanced Components
+                </a>
+</nav>
+<div class="mt-auto px-4 pt-4 border-t-0 bg-surface-container-low space-y-1">
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 flex items-center gap-element-gap px-4 py-3 cursor-pointer font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 flex items-center gap-element-gap px-4 py-3 cursor-pointer font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">history</span>
+                    Changelog
+                </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-sidebar-width px-margin-mobile md:px-margin-desktop py-section-v">
+<header class="mb-12 pt-8" id="introduction">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-4">Design System &amp; UI Component Library</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Comprehensive documentation for the Core Framework. This document outlines the minimal, stark aesthetic principles and technical implementation details required for consistent UI construction.</p>
+</header>
+<!-- Layout & Grid -->
+<section class="mb-20 pt-8" id="layout-grid">
+<h2 class="font-headline-md text-headline-md text-primary mb-8 active-indicator inline-block pb-2">Layout &amp; Grid</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-3xl">Our layout system is built on strict spacing intervals and tonal layering rather than borders or shadows. The aesthetic remains "Clinical Precision" / "Minimalist Slate".</p>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<div class="bg-surface-container-low p-card-padding rounded-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Spacing Tokens</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center bg-surface p-4 rounded">
+<span class="font-label-md">Section Gap</span>
+<span class="font-utility-mono text-on-surface-variant">32px (section-v, section-gap)</span>
+</div>
+<div class="flex justify-between items-center bg-surface p-4 rounded">
+<span class="font-label-md">Card Padding</span>
+<span class="font-utility-mono text-on-surface-variant">24px (card-padding)</span>
+</div>
+<div class="flex justify-between items-center bg-surface p-4 rounded">
+<span class="font-label-md">Gutter</span>
+<span class="font-utility-mono text-on-surface-variant">16px (gutter)</span>
+</div>
+<div class="flex justify-between items-center bg-surface p-4 rounded">
+<span class="font-label-md">Element Gap</span>
+<span class="font-utility-mono text-on-surface-variant">12px (element-gap)</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-card-padding rounded-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Tonal Layering Hierarchy</h3>
+<div class="space-y-4">
+<div class="p-4 bg-background border border-dashed rounded flex flex-col">
+<span class="font-label-md">Level 0: Canvas</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">#FFFFFF (bg-background)</span>
+</div>
+<div class="p-4 bg-surface rounded flex flex-col">
+<span class="font-label-md">Level 1: Surface Base</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">#F9F9F9 (bg-surface)</span>
+</div>
+<div class="p-4 bg-surface-container-high rounded flex flex-col">
+<span class="font-label-md">Level 2: Surface High</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">#E8E8E8 (bg-surface-container-high)</span>
+</div>
+<div class="p-4 bg-surface-container-highest rounded flex flex-col">
+<span class="font-label-md">Level 3: Surface Highest</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">#E2E2E2 (bg-surface-container-highest)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Typography -->
+<section class="mb-20 pt-8" id="typography">
+<h2 class="font-headline-md text-headline-md text-primary mb-8 active-indicator inline-block pb-2">Typography</h2>
+<div class="bg-surface-container-low p-card-padding rounded-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Typography Scale</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-8">
+<div>
+<p class="font-headline-lg text-headline-lg">Newsreader</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-2">font-headline-lg (40px, 600, -0.02em)</p>
+</div>
+<div>
+<p class="font-headline-md text-headline-md">Newsreader Medium</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-2">font-headline-md (24px, 500)</p>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<p class="font-body-lg text-body-lg">Inter Body Large</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-2">font-body-lg (18px, 400)</p>
+</div>
+<div>
+<p class="font-body-md text-body-md">Inter Body Medium</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-2">font-body-md (16px, 400)</p>
+</div>
+<div>
+<p class="font-label-md text-label-md">INTER LABEL MEDIUM</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-2">font-label-md (14px, 600, 0.01em)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Colors -->
+<section class="mb-20 pt-8" id="colors">
+<h2 class="font-headline-md text-headline-md text-primary mb-8 active-indicator inline-block pb-2">Colors</h2>
+<div class="bg-surface-container-low p-card-padding rounded-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Color Palette</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-col bg-surface rounded overflow-hidden">
+<div class="h-24 bg-primary"></div>
+<div class="p-4">
+<p class="font-label-md text-label-md font-bold">Primary</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-1">#000000</p>
+</div>
+</div>
+<div class="flex flex-col bg-surface rounded overflow-hidden">
+<div class="h-24 bg-surface" style="border: 1px solid #E2E2E2 !important;"></div>
+<div class="p-4">
+<p class="font-label-md text-label-md font-bold">Surface Base</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-1">#F9F9F9</p>
+</div>
+</div>
+<div class="flex flex-col bg-surface rounded overflow-hidden">
+<div class="h-24 bg-surface-container-low"></div>
+<div class="p-4">
+<p class="font-label-md text-label-md font-bold">Canvas (White)</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-1">#FFFFFF</p>
+</div>
+</div>
+<div class="flex flex-col bg-surface rounded overflow-hidden">
+<div class="h-24" style="background-color: #FFB300;"></div>
+<div class="p-4">
+<p class="font-label-md text-label-md font-bold">Active Amber</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-1">#FFB300</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Iconography -->
+<section class="mb-20 pt-8" id="iconography">
+<h2 class="font-headline-md text-headline-md text-primary mb-8 active-indicator inline-block pb-2">Iconography</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-3xl">Curated Material Design icon pack for QuickYT.</p>
+<div class="bg-surface-container-low p-card-padding rounded-lg">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<div class="flex flex-col items-center justify-center p-4 bg-surface rounded hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2 text-primary">home</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">home</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface rounded hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2 text-primary">analytics</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">analytics</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface rounded hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2 text-primary">video_library</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">library</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface rounded hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2 text-primary">description</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">description</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface rounded hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2 text-primary">memory</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">memory</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface rounded hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2 text-primary">settings</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">settings</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface rounded hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2 text-primary">search</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">search</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface rounded hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2 text-primary">notifications</span>
+<span class="font-utility-mono text-xs text-on-surface-variant">notifications</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interaction Matrix -->
+<section class="mb-20 pt-8" id="interaction-matrix">
+<h2 class="font-headline-md text-headline-md text-primary mb-8 active-indicator inline-block pb-2">Interaction Matrix</h2>
+<!-- Buttons -->
+<div class="bg-surface-container-low p-card-padding rounded-lg mb-8 overflow-x-auto">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Button States</h3>
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="border-b border-surface-variant">
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Type</th>
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Default</th>
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Hover</th>
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Focus/Active</th>
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Disabled</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-surface-variant">
+<td class="py-6 font-label-md font-medium text-primary">Primary</td>
+<td class="py-6"><button class="bg-primary text-on-primary px-6 py-2 rounded font-label-md">Button</button></td>
+<td class="py-6"><button class="bg-primary text-on-primary px-6 py-2 rounded font-label-md opacity-90">Button</button></td>
+<td class="py-6"><button class="bg-primary text-on-primary px-6 py-2 rounded font-label-md ring-2 ring-primary ring-offset-2">Button</button></td>
+<td class="py-6"><button class="bg-surface-container-high text-on-surface-variant px-6 py-2 rounded font-label-md cursor-not-allowed">Button</button></td>
+</tr>
+<tr class="border-b border-surface-variant">
+<td class="py-6 font-label-md font-medium text-primary">Secondary</td>
+<td class="py-6"><button class="bg-surface-container-high text-primary px-6 py-2 rounded font-label-md">Button</button></td>
+<td class="py-6"><button class="bg-surface-variant text-primary px-6 py-2 rounded font-label-md">Button</button></td>
+<td class="py-6"><button class="bg-surface-container-high text-primary px-6 py-2 rounded font-label-md ring-2 ring-primary ring-offset-2">Button</button></td>
+<td class="py-6"><button class="bg-surface text-on-surface-variant px-6 py-2 rounded font-label-md cursor-not-allowed opacity-50">Button</button></td>
+</tr>
+<tr class="border-b border-surface-variant">
+<td class="py-6 font-label-md font-medium text-primary">Ghost</td>
+<td class="py-6"><button class="text-primary px-6 py-2 rounded font-label-md">Button</button></td>
+<td class="py-6"><button class="bg-surface-container-high text-primary px-6 py-2 rounded font-label-md">Button</button></td>
+<td class="py-6"><button class="text-primary px-6 py-2 rounded font-label-md ring-2 ring-primary ring-offset-2">Button</button></td>
+<td class="py-6"><button class="text-on-surface-variant px-6 py-2 rounded font-label-md cursor-not-allowed opacity-50">Button</button></td>
+</tr>
+<tr>
+<td class="py-6 font-label-md font-medium text-error">Danger</td>
+<td class="py-6"><button class="bg-error text-on-error px-6 py-2 rounded font-label-md">Delete</button></td>
+<td class="py-6"><button class="bg-error text-on-error px-6 py-2 rounded font-label-md opacity-90">Delete</button></td>
+<td class="py-6"><button class="bg-error text-on-error px-6 py-2 rounded font-label-md ring-2 ring-error ring-offset-2">Delete</button></td>
+<td class="py-6"><button class="bg-surface-container-high text-on-surface-variant px-6 py-2 rounded font-label-md cursor-not-allowed">Delete</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Input Fields -->
+<div class="bg-surface-container-low p-card-padding rounded-lg overflow-x-auto">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Input States</h3>
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="border-b border-surface-variant">
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Type</th>
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Default</th>
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Hover/Focus</th>
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Error</th>
+<th class="py-4 font-label-md text-on-surface-variant w-1/5">Disabled</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-surface-variant">
+<td class="py-6 font-label-md font-medium text-primary">Text Input</td>
+<td class="py-6 p-2"><input class="w-full" placeholder="Placeholder" type="text"/></td>
+<td class="py-6 p-2"><input class="w-full" placeholder="Focused" style="border-bottom-color: #FFB300 !important;" type="text"/></td>
+<td class="py-6 p-2"><input class="w-full" placeholder="Error state" style="border-bottom-color: #ba1a1a !important;" type="text"/></td>
+<td class="py-6 p-2"><input class="w-full opacity-50 cursor-not-allowed" disabled="" placeholder="Disabled" type="text"/></td>
+</tr>
+<tr class="border-b border-surface-variant">
+<td class="py-6 font-label-md font-medium text-primary">Select</td>
+<td class="py-6 p-2">
+<select class="w-full">
+<option>Option 1</option>
+</select>
+</td>
+<td class="py-6 p-2">
+<select class="w-full" style="border-bottom-color: #FFB300 !important;">
+<option>Option 1</option>
+</select>
+</td>
+<td class="py-6 p-2">
+<select class="w-full" style="border-bottom-color: #ba1a1a !important;">
+<option>Option 1</option>
+</select>
+</td>
+<td class="py-6 p-2">
+<select class="w-full opacity-50 cursor-not-allowed" disabled="">
+<option>Option 1</option>
+</select>
+</td>
+</tr>
+<tr>
+<td class="py-6 font-label-md font-medium text-primary">Multi-line</td>
+<td class="py-6 p-2"><textarea class="w-full h-20 resize-none" placeholder="Description..."></textarea></td>
+<td class="py-6 p-2"><textarea class="w-full h-20 resize-none" placeholder="Description..." style="border-bottom-color: #FFB300 !important;"></textarea></td>
+<td class="py-6 p-2"><textarea class="w-full h-20 resize-none" placeholder="Description..." style="border-bottom-color: #ba1a1a !important;"></textarea></td>
+<td class="py-6 p-2"><textarea class="w-full h-20 resize-none opacity-50 cursor-not-allowed" disabled="" placeholder="Description..."></textarea></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Advanced Components -->
+<section class="mb-20 pt-8" id="advanced-components">
+<h2 class="font-headline-md text-headline-md text-primary mb-8 active-indicator inline-block pb-2">Advanced Components</h2>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<!-- Toasts -->
+<div class="bg-surface-container-low p-card-padding rounded-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Toasts / Snackbars</h3>
+<div class="space-y-4">
+<div class="bg-primary text-on-primary p-4 rounded flex items-center gap-3">
+<span class="material-symbols-outlined text-green-400">check_circle</span>
+<span class="font-body-md">Action completed successfully.</span>
+</div>
+<div class="bg-primary text-on-primary p-4 rounded flex items-center gap-3">
+<span class="material-symbols-outlined text-error">error</span>
+<span class="font-body-md">Connection failed. Please retry.</span>
+</div>
+<div class="bg-primary text-on-primary p-4 rounded flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400">info</span>
+<span class="font-body-md">Update available in settings.</span>
+</div>
+</div>
+</div>
+<!-- Swipeable Bottom Sheet -->
+<div class="bg-surface-container-low p-card-padding rounded-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Swipeable Bottom Sheet</h3>
+<div class="relative h-64 bg-surface rounded overflow-hidden flex items-end">
+<div class="w-full bg-surface-container-highest rounded-t-xl h-3/4 p-6 relative">
+<div class="w-12 h-1 bg-surface-tint rounded-full mx-auto mb-6"></div>
+<h4 class="font-headline-md text-primary mb-2">Options</h4>
+<p class="font-body-md text-on-surface-variant">Content inside the 3/4 height swipeable sheet.</p>
+</div>
+</div>
+</div>
+<!-- Intro Guide Modal -->
+<div class="bg-surface-container-low p-card-padding rounded-lg xl:col-span-2">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Intro Guide Modal &amp; Popups</h3>
+<div class="bg-surface p-12 rounded flex items-center justify-center">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-lg overflow-hidden relative">
+<div class="h-32 bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-primary">explore</span>
+</div>
+<div class="p-8 text-center">
+<h4 class="font-headline-md text-primary mb-3">Welcome to QuickYT</h4>
+<p class="font-body-md text-on-surface-variant mb-8">Let's take a quick tour to help you get started with the new minimalist interface and tonal layering system.</p>
+<div class="flex flex-col gap-3">
+<button class="bg-primary text-on-primary w-full py-3 rounded font-label-md">Start Tour</button>
+<button class="text-on-surface-variant w-full py-3 rounded font-label-md">Skip for now</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface w-full py-8 mt-section-gap flex flex-col md:flex-row justify-between items-center px-container-padding max-w-[1440px] mx-auto z-50 relative">
+<div class="font-label-md text-label-md text-on-surface-variant">
+            © 2024 Design Systems Team. All rights reserved.
+        </div>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Documentation</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">License</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Feedback</a>
+</div>
+</footer>
+</body></html>

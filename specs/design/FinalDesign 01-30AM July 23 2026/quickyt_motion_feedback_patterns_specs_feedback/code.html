@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Motion &amp; Feedback Patterns - QuickYT Design System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "on-surface-variant": "#4c4546",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-fixed": "#ffdeac",
+                        "surface-tint": "#5e5e5e",
+                        "tertiary-fixed-dim": "#ffba38",
+                        "primary-fixed": "#e2e2e2",
+                        "outline": "#7e7576",
+                        "on-primary-fixed-variant": "#474747",
+                        "secondary": "#5f5e5e",
+                        "on-secondary-fixed-variant": "#474747",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-container": "#af7a00",
+                        "inverse-primary": "#c6c6c6",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "on-secondary-container": "#656464",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e4e2e1",
+                        "surface-container": "#eeeeee",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-tertiary-fixed": "#281900",
+                        "on-primary-fixed": "#1b1b1b",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-on-surface": "#f1f1f1",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#cfc4c5",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#848484",
+                        "on-background": "#1a1c1c",
+                        "tertiary-container": "#281900",
+                        "secondary-container": "#e4e2e1",
+                        "surface-bright": "#f9f9f9",
+                        "primary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-surface": "#1a1c1c",
+                        "surface": "#f9f9f9",
+                        "primary-container": "#1b1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "card-padding": "24px",
+                        "section-v": "32px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "utility-mono": ["monospace"],
+                        "headline-lg-mobile": ["Newsreader"],
+                        "headline-md": ["Newsreader"],
+                        "headline-lg": ["Newsreader"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "utility-mono": ["13px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .skeleton-shimmer {
+            background: linear-gradient(90deg, #e2e2e2 0%, #f3f3f3 50%, #e2e2e2 100%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .ripple {
+            position: relative;
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+        }
+        .ripple:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
+        }
+        .ripple:active:after {
+            transform: scale(0, 0);
+            opacity: .1;
+            transition: 0s;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden lg:flex flex-col border-r-0 h-full py-section-gap bg-surface-container-low w-[280px] shrink-0 sticky top-0">
+<div class="px-4 py-6 mb-4">
+<h1 class="font-headline-md text-headline-md text-primary">Core Framework</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">v2.4.0-stable</p>
+</div>
+<div class="flex-1 overflow-y-auto">
+<ul class="space-y-2 px-2">
+<li>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">info</span>
+<span class="font-label-md text-label-md">Introduction</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grid_view</span>
+<span class="font-label-md text-label-md">Layout &amp; Grid</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">text_fields</span>
+<span class="font-label-md text-label-md">Typography</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">palette</span>
+<span class="font-label-md text-label-md">Colors</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">token</span>
+<span class="font-label-md text-label-md">Iconography</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer bg-secondary-container text-on-secondary-container rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">layers</span>
+<span class="font-label-md text-label-md font-bold">Interaction Matrix</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="mt-auto px-4 py-4 space-y-4">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded text-center">View Github</button>
+<div class="border-t border-outline-variant pt-4 space-y-2">
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-colors duration-150 py-2" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="font-label-sm text-label-sm">Support</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-colors duration-150 py-2" href="#">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<span class="font-label-sm text-label-sm">Changelog</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col h-full overflow-y-auto bg-surface-bright">
+<!-- TopNavBar (Mobile/Desktop Shared Header Area for Canvas) -->
+<header class="flex justify-between items-center px-6 md:px-margin-desktop h-20 w-full z-40 bg-surface sticky top-0">
+<div class="flex items-center gap-4">
+<span class="md:hidden font-headline-md text-headline-md text-primary">QuickYT</span>
+<h2 class="hidden md:block font-headline-md text-headline-md text-primary">Motion &amp; Feedback Patterns</h2>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:bg-surface-container transition-colors duration-200 px-3 py-2 rounded" href="#">Foundations</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container transition-colors duration-200 px-3 py-2 rounded" href="#">Components</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 px-3 py-2" href="#">Patterns</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container transition-colors duration-200 px-3 py-2 rounded" href="#">Resources</a>
+</nav>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 text-on-surface-variant">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 text-on-surface-variant">dark_mode</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 text-on-surface-variant">settings</span>
+</div>
+</div>
+</header>
+<!-- Canvas Content -->
+<div class="p-4 md:p-margin-desktop max-w-7xl mx-auto w-full space-y-section-v">
+<!-- Intro -->
+<section class="max-w-3xl">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Motion &amp; Feedback</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Motion in QuickYT is purposeful. It exists to bridge contexts, provide immediate confirmation of actions, and mask necessary latency during data retrieval. We prioritize high-performance CSS transitions and deterministic skeleton states over indefinite spinners.
+                </p>
+</section>
+<!-- Skeleton Loading Grid -->
+<section class="bg-surface-container-lowest p-card-padding">
+<div class="mb-6 border-b border-surface-variant pb-4">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">hourglass_empty</span> Skeleton Loading States
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Used during initial data fetch to establish layout expectations. The shimmer effect moves left-to-right at 1.5s per cycle.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Video Card Skeleton -->
+<div class="flex flex-col gap-3">
+<div class="w-full aspect-video rounded-lg skeleton-shimmer"></div>
+<div class="flex gap-3 mt-2">
+<div class="w-10 h-10 rounded-full skeleton-shimmer shrink-0"></div>
+<div class="flex flex-col gap-2 w-full">
+<div class="h-4 w-3/4 rounded skeleton-shimmer"></div>
+<div class="h-3 w-1/2 rounded skeleton-shimmer"></div>
+</div>
+</div>
+</div>
+<!-- Video Card Skeleton -->
+<div class="flex flex-col gap-3 hidden md:flex">
+<div class="w-full aspect-video rounded-lg skeleton-shimmer"></div>
+<div class="flex gap-3 mt-2">
+<div class="w-10 h-10 rounded-full skeleton-shimmer shrink-0"></div>
+<div class="flex flex-col gap-2 w-full">
+<div class="h-4 w-5/6 rounded skeleton-shimmer"></div>
+<div class="h-3 w-2/3 rounded skeleton-shimmer"></div>
+</div>
+</div>
+</div>
+<!-- Video Card Skeleton -->
+<div class="flex flex-col gap-3 hidden lg:flex">
+<div class="w-full aspect-video rounded-lg skeleton-shimmer"></div>
+<div class="flex gap-3 mt-2">
+<div class="w-10 h-10 rounded-full skeleton-shimmer shrink-0"></div>
+<div class="flex flex-col gap-2 w-full">
+<div class="h-4 w-4/5 rounded skeleton-shimmer"></div>
+<div class="h-3 w-1/2 rounded skeleton-shimmer"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 bg-surface-container-low p-4 flex gap-4 items-start">
+<span class="material-symbols-outlined text-outline">code</span>
+<div>
+<p class="font-label-md text-label-md text-primary mb-1">Technical Specs</p>
+<code class="font-utility-mono text-utility-mono text-on-surface-variant block">animation: shimmer 1.5s infinite linear;</code>
+<code class="font-utility-mono text-utility-mono text-on-surface-variant block">background: linear-gradient(90deg, #e2e2e2 0%, #f3f3f3 50%, #e2e2e2 100%);</code>
+</div>
+</div>
+</section>
+<!-- Haptic Feedback & Interactions -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Action Feedback -->
+<div class="bg-surface-container-lowest p-card-padding">
+<div class="mb-6 border-b border-surface-variant pb-4">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">touch_app</span> Interaction Feedback
+                        </h3>
+</div>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-primary">Ripple Effect (Touch Target)</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-2">Used on all list items and primary buttons to confirm registration of touch intent.</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded ripple self-start transition-opacity duration-200">
+                                Subscribe
+                            </button>
+</div>
+<div class="h-[1px] w-full bg-surface-variant my-4"></div>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-primary">Haptic Triggers (Android)</p>
+<ul class="space-y-3 mt-2">
+<li class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<span class="font-utility-mono text-utility-mono text-on-surface-variant">HapticFeedbackConstants.CLOCK_TICK</span>
+<span class="font-body-md text-body-md text-on-surface text-sm ml-auto">Scroll Snapping</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<span class="font-utility-mono text-utility-mono text-on-surface-variant">HapticFeedbackConstants.CONFIRM</span>
+<span class="font-body-md text-body-md text-on-surface text-sm ml-auto">Success Action</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- State Transitions -->
+<div class="bg-surface-container-lowest p-card-padding">
+<div class="mb-6 border-b border-surface-variant pb-4">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">animation</span> State Transitions
+                        </h3>
+</div>
+<div class="space-y-6">
+<div class="p-4 bg-surface-container-low border-l-4 border-primary">
+<p class="font-label-md text-label-md text-primary mb-1">Standard Duration: 200ms</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Most UI state changes (hover, active, focus) use a rapid 200ms ease-in-out transition to feel snappy yet smooth.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-bright flex flex-col items-center justify-center gap-2 h-24 hover:bg-surface-container transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-outline">thumb_up</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hover Target</span>
+</div>
+<div class="p-4 bg-surface-bright flex flex-col items-center justify-center gap-2 h-24 group cursor-pointer relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors duration-200">bookmark</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors duration-200">Focus Target</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Empty States Minimalist -->
+<section class="bg-surface-container-lowest p-card-padding">
+<div class="mb-6 border-b border-surface-variant pb-4">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">inbox</span> Empty States
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Minimalist interventions when content is unavailable. Focus on clear copy over decorative illustration.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Empty State 1 -->
+<div class="border border-surface-variant p-8 flex flex-col items-center justify-center text-center bg-surface-bright min-h-[250px]">
+<span class="material-symbols-outlined text-[48px] text-surface-tint mb-4" style="font-variation-settings: 'wght' 200;">search_off</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">No results found</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[250px]">Try adjusting your search terms or filters to find what you're looking for.</p>
+</div>
+<!-- Empty State 2 -->
+<div class="border border-surface-variant p-8 flex flex-col items-center justify-center text-center bg-surface-bright min-h-[250px]">
+<span class="material-symbols-outlined text-[48px] text-surface-tint mb-4" style="font-variation-settings: 'wght' 200;">cloud_off</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">You're offline</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[250px] mb-6">Check your connection to continue watching.</p>
+<button class="bg-secondary-container text-on-secondary-container font-label-md text-label-md px-4 py-2 rounded">Retry Connection</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full py-8 mt-section-gap bg-surface flex flex-col md:flex-row justify-between items-center px-6 md:px-margin-desktop max-w-7xl mx-auto border-t border-surface-container-lowest">
+<div class="font-headline-md text-headline-md text-primary mb-4 md:mb-0">
+                QuickYT Design
+            </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Documentation</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">License</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Feedback</a>
+</div>
+<div class="w-full md:w-auto text-center mt-4 md:mt-0 font-label-sm text-label-sm text-on-surface-variant">
+                © 2024 Design Systems Team. All rights reserved.
+            </div>
+</footer>
+</main>
+</body></html>

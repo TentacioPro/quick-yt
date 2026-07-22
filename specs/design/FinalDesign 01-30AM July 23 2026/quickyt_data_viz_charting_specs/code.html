@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickYT Android - Data Visualization &amp; Charting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "on-surface-variant": "#4c4546",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-fixed": "#ffdeac",
+                        "surface-tint": "#5e5e5e",
+                        "tertiary-fixed-dim": "#ffba38",
+                        "primary-fixed": "#e2e2e2",
+                        "outline": "#7e7576",
+                        "on-primary-fixed-variant": "#474747",
+                        "secondary": "#5f5e5e",
+                        "on-secondary-fixed-variant": "#474747",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-container": "#af7a00",
+                        "inverse-primary": "#c6c6c6",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "on-secondary-container": "#656464",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e4e2e1",
+                        "surface-container": "#eeeeee",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-tertiary-fixed": "#281900",
+                        "on-primary-fixed": "#1b1b1b",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-on-surface": "#f1f1f1",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#cfc4c5",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#848484",
+                        "on-background": "#1a1c1c",
+                        "tertiary-container": "#281900",
+                        "secondary-container": "#e4e2e1",
+                        "surface-bright": "#f9f9f9",
+                        "primary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-surface": "#1a1c1c",
+                        "surface": "#f9f9f9",
+                        "primary-container": "#1b1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "card-padding": "24px",
+                        "section-v": "32px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "utility-mono": ["monospace"],
+                        "headline-lg-mobile": ["Newsreader", "serif"],
+                        "headline-md": ["Newsreader", "serif"],
+                        "headline-lg": ["Newsreader", "serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "utility-mono": ["13px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary font-body-md text-body-md w-full top-0 sticky flex justify-between items-center px-4 md:px-margin-desktop h-16 z-50 transition-colors duration-200">
+<div class="font-headline-md text-headline-md text-primary dark:text-primary tracking-tight">Design System V1</div>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-medium hover:bg-surface-container dark:hover:bg-surface-container transition-colors duration-200 px-3 py-2 cursor-pointer active:opacity-80" href="#">Foundations</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 cursor-pointer active:opacity-80" href="#">Components</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container dark:hover:bg-surface-container transition-colors duration-200 px-3 py-2 cursor-pointer active:opacity-80" href="#">Patterns</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container dark:hover:bg-surface-container transition-colors duration-200 px-3 py-2 cursor-pointer active:opacity-80" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container p-2 rounded-full transition-colors">dark_mode</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container p-2 rounded-full transition-colors">settings</span>
+</div>
+</header>
+<div class="flex flex-1 w-full max-w-7xl mx-auto">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low dark:bg-surface-container-low text-primary dark:text-primary font-label-lg text-label-lg w-64 hidden lg:flex flex-col border-r-0 h-[calc(100vh-4rem)] py-section-v sticky top-16 shrink-0">
+<div class="px-4 mb-8">
+<h2 class="font-headline-md text-headline-md text-primary mb-1">Core Framework</h2>
+<p class="text-on-surface-variant font-utility-mono text-utility-mono">v2.4.0-stable</p>
+</div>
+<nav class="flex-1 flex flex-col gap-2 px-2 overflow-y-auto">
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">info</span>
+                    Introduction
+                </a>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+                    Layout &amp; Grid
+                </a>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">text_fields</span>
+                    Typography
+                </a>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer bg-secondary-container text-on-secondary-container rounded-lg" href="#">
+<span class="material-symbols-outlined">palette</span>
+                    Colors
+                </a>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">token</span>
+                    Iconography
+                </a>
+<a class="flex items-center gap-4 px-4 py-3 cursor-pointer text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">layers</span>
+                    Interaction Matrix
+                </a>
+</nav>
+<div class="px-4 mt-auto pt-8 border-t border-surface-container-high mx-4">
+<button class="w-full bg-primary text-on-primary py-2 px-4 rounded font-label-md text-label-md mb-6 hover:opacity-90 transition-opacity">View Github</button>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-2 py-2 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span class="font-label-sm text-label-sm">Support</span>
+</a>
+<a class="flex items-center gap-4 px-2 py-2 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" href="#">
+<span class="material-symbols-outlined text-sm">history</span>
+<span class="font-label-sm text-label-sm">Changelog</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 px-4 md:px-margin-desktop py-section-v w-full overflow-hidden">
+<header class="mb-section-v">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Data Visualization &amp; Charting</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+                    Guidelines for rendering metrics, analysis, and semantic relationships within the QuickYT Android environment. Designs follow the "Paper and Ink" philosophy, utilizing high-contrast tonal shifts over decorative shadows.
+                </p>
+</header>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter mb-section-v">
+<!-- Quantitative Palette -->
+<section class="xl:col-span-12 bg-surface-container-low p-card-padding rounded-DEFAULT">
+<h2 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">palette</span>
+                        Quantitative Palette
+                    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        A harmonious series of colors strictly for charting, ensuring high legibility and deuteranopia compliance.
+                    </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="flex flex-col">
+<div class="h-24 w-full bg-primary rounded-t-DEFAULT"></div>
+<div class="bg-surface-container-highest p-4 rounded-b-DEFAULT">
+<p class="font-label-md text-label-md text-primary">Series 1 (Base)</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-1">#000000</p>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="h-24 w-full bg-surface-tint rounded-t-DEFAULT"></div>
+<div class="bg-surface-container-highest p-4 rounded-b-DEFAULT">
+<p class="font-label-md text-label-md text-primary">Series 2 (Mid)</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-1">#5e5e5e</p>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="h-24 w-full bg-secondary-fixed-dim rounded-t-DEFAULT"></div>
+<div class="bg-surface-container-highest p-4 rounded-b-DEFAULT">
+<p class="font-label-md text-label-md text-primary">Series 3 (Light)</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-1">#c8c6c6</p>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="h-24 w-full bg-tertiary-fixed-dim rounded-t-DEFAULT"></div>
+<div class="bg-surface-container-highest p-4 rounded-b-DEFAULT">
+<p class="font-label-md text-label-md text-primary">Accent (Alert)</p>
+<p class="font-utility-mono text-utility-mono text-on-surface-variant mt-1">#ffba38</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Line Chart Treatment -->
+<section class="xl:col-span-7 bg-surface-container-low p-card-padding rounded-DEFAULT flex flex-col">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">System Metrics Line Chart</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Continuous data over time. No gridlines; rely on axis ticks.</p>
+<div class="flex-1 bg-surface-container-highest rounded-DEFAULT p-4 relative min-h-[300px] flex items-end justify-between overflow-hidden">
+<!-- Abstract Chart Representation -->
+<div class="absolute inset-0 p-8 flex items-end">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 50">
+<path class="text-primary" d="M0,45 Q10,30 20,40 T40,20 T60,35 T80,10 T100,5" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path class="text-secondary-fixed-dim opacity-30" d="M0,50 L0,45 Q10,30 20,40 T40,20 T60,35 T80,10 T100,5 L100,50 Z" fill="currentColor"></path>
+</svg>
+</div>
+<!-- Axes markers -->
+<div class="absolute bottom-4 left-4 right-4 flex justify-between font-utility-mono text-utility-mono text-on-surface-variant border-t border-outline-variant pt-2 z-10">
+<span>00:00</span>
+<span>06:00</span>
+<span>12:00</span>
+<span>18:00</span>
+</div>
+</div>
+<div class="mt-4 bg-surface-container-highest p-4 rounded-DEFAULT border-l-4 border-tertiary-fixed-dim">
+<h3 class="font-label-md text-label-md text-primary mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">accessibility_new</span> Accessibility Note
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ensure data points can be focused via screen reader, reading exact time and value. Hover states must display high-contrast tooltips.</p>
+</div>
+</section>
+<!-- Bar Chart Treatment -->
+<section class="xl:col-span-5 bg-surface-container-low p-card-padding rounded-DEFAULT flex flex-col">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Word Frequency Bar Chart</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Categorical data comparison.</p>
+<div class="flex-1 bg-surface-container-highest rounded-DEFAULT p-6 min-h-[300px] flex flex-col justify-end gap-3">
+<div class="flex items-center gap-4">
+<span class="w-16 text-right font-utility-mono text-utility-mono text-on-surface-variant truncate">the</span>
+<div class="h-6 bg-primary rounded-r-DEFAULT" style="width: 85%"></div>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-16 text-right font-utility-mono text-utility-mono text-on-surface-variant truncate">and</span>
+<div class="h-6 bg-surface-tint rounded-r-DEFAULT" style="width: 65%"></div>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-16 text-right font-utility-mono text-utility-mono text-on-surface-variant truncate">data</span>
+<div class="h-6 bg-surface-tint rounded-r-DEFAULT" style="width: 45%"></div>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-16 text-right font-utility-mono text-utility-mono text-on-surface-variant truncate">system</span>
+<div class="h-6 bg-secondary-fixed-dim rounded-r-DEFAULT" style="width: 30%"></div>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-16 text-right font-utility-mono text-utility-mono text-on-surface-variant truncate">user</span>
+<div class="h-6 bg-secondary-fixed-dim rounded-r-DEFAULT" style="width: 15%"></div>
+</div>
+</div>
+<div class="mt-4 bg-surface-container-highest p-4 rounded-DEFAULT border-l-4 border-tertiary-fixed-dim">
+<h3 class="font-label-md text-label-md text-primary mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">accessibility_new</span> Accessibility Note
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Provide an alternative table view for all categorical charts. Use patterned fills if color alone distinguishes categories in complex sets.</p>
+</div>
+</section>
+<!-- Semantic Knowledge Graph -->
+<section class="xl:col-span-12 bg-surface-container-low p-card-padding rounded-DEFAULT">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Semantic Knowledge Graph Node</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Styling for entity relationships. Focus on typographic hierarchy and minimal bounding boxes.</p>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="bg-surface-container-highest p-8 flex items-center justify-center rounded-DEFAULT min-h-[300px] relative">
+<!-- Graph representation -->
+<svg class="absolute inset-0 w-full h-full" viewbox="0 0 100 100">
+<line class="text-outline-variant" stroke="currentColor" stroke-width="1" x1="50" x2="20" y1="50" y2="20"></line>
+<line class="text-outline-variant" stroke="currentColor" stroke-width="1" x1="50" x2="80" y1="50" y2="30"></line>
+<line class="text-outline-variant" stroke="currentColor" stroke-width="1" x1="50" x2="70" y1="50" y2="80"></line>
+</svg>
+<!-- Central Node -->
+<div class="relative z-10 bg-surface px-6 py-4 rounded-DEFAULT border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Entity Type</p>
+<p class="font-headline-md text-headline-md text-primary">Machine Learning</p>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="font-label-md text-label-md text-primary mb-4 border-b border-outline-variant pb-2">Anatomy</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="bg-surface-container-high w-6 h-6 rounded-full flex items-center justify-center font-utility-mono text-utility-mono text-primary mt-1">1</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Surface Container</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Level 0 (Canvas) background to lift off the graph area.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="bg-surface-container-high w-6 h-6 rounded-full flex items-center justify-center font-utility-mono text-utility-mono text-primary mt-1">2</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Sub-label</p>
+<p class="font-body-md text-body-md text-on-surface-variant">`label-sm` with `text-on-surface-variant` for semantic type.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="bg-surface-container-high w-6 h-6 rounded-full flex items-center justify-center font-utility-mono text-utility-mono text-primary mt-1">3</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Edges (Connectors)</p>
+<p class="font-body-md text-body-md text-on-surface-variant">1px stroke using `outline-variant`.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface text-primary dark:text-primary font-label-md text-label-md w-full py-8 mt-section-v bg-surface-container-lowest dark:bg-surface-container-lowest flex flex-col md:flex-row justify-between items-center px-4 md:px-margin-desktop max-w-7xl mx-auto border-t border-surface-variant">
+<div class="font-headline-md text-headline-md text-primary mb-4 md:mb-0">
+            © 2024 Design Systems Team. All rights reserved.
+        </div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors transition-opacity duration-200" href="#">Documentation</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors transition-opacity duration-200" href="#">License</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors transition-opacity duration-200" href="#">Feedback</a>
+</div>
+</footer>
+</body></html>

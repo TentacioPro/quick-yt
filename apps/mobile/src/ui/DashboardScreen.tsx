@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text, Button, useTheme } from 'react-native-paper';
 
 export interface VideoItem {
@@ -19,13 +20,8 @@ export const InsightBlock: React.FC<{ title: string; content: string }> = ({ tit
   );
 };
 
-export const DashboardScreen: React.FC<{
-  videoList: VideoItem[];
-  syncStatus: string;
-  lastSynced: string;
-  onSync: () => void;
-  onIngest: (url: string, lang: string) => void;
-}> = ({ videoList, syncStatus, lastSynced, onSync, onIngest }) => {
+export const DashboardScreen: React.FC<any> = (props) => {
+  const { videoList, syncStatus, lastSynced, onSync, onIngest } = props;
   const theme = useTheme() as typeof import('./Theme').EditorialTheme;
   const [url, setUrl] = useState('');
   const [selectedLang, setSelectedLang] = useState('en');
@@ -49,182 +45,112 @@ export const DashboardScreen: React.FC<{
   };
 
   return (
-    <ScrollView style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      {/* 1. Header showing Sync status */}
-      <View style={[styles.headerCard, { backgroundColor: theme.colors.surface_container_lowest }]}>
-        <View>
-          <Text style={[styles.headerSubtitle, { color: theme.colors.outlineVariant }]}>THE ARCHIVE</Text>
-          <Text style={[styles.headerTitle, { color: theme.colors.onSurface }]}>QuickYT Dashboard</Text>
-        </View>
-        <View style={styles.statusContainer}>
-          <View style={styles.statusRow}>
-            <View style={[styles.dot, { backgroundColor: syncStatus === 'Connected' ? '#4edea3' : '#a0a0a0' }]} />
-            <Text style={[styles.statusText, { color: theme.colors.onSurface }]}>
-              {syncStatus}
-            </Text>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.background }}>
+      <ScrollView style={[styles.container, { backgroundColor: theme.colors.background, padding: 24 }]}>
+        {/* 1. Bento Grid Section: Video Ingestion */}
+        <View style={[styles.sectionCard, { backgroundColor: theme.colors.surface_container }]}>
+          <Text style={[styles.sectionTitle, { color: theme.colors.primary }]}>Document Ingestion</Text>
+          {/* URL Input */}
+          <View style={[styles.inputContainer, { backgroundColor: theme.colors.surface_container_lowest }]}>
+            <TextInput
+              style={[styles.input, { color: theme.colors.onSurface }]}
+              placeholder="Enter YouTube Video URL..."
+              placeholderTextColor={theme.colors.outlineVariant}
+              value={url}
+              onChangeText={setUrl}
+            />
           </View>
-          <Text style={[styles.lastSyncedText, { color: theme.colors.outlineVariant }]}>
-            Last Synced: {lastSynced}
-          </Text>
-        </View>
-      </View>
-
-      {/* 2. Bento Grid Section: Video Ingestion */}
-      <View style={[styles.sectionCard, { backgroundColor: theme.colors.surface_container }]}>
-        <Text style={[styles.sectionTitle, { color: theme.colors.primary }]}>Document Ingestion</Text>
-        
-        {/* URL Input: Tonal Layering using surface_container_high over surface_container_low */}
-        <View style={[styles.inputContainer, { backgroundColor: theme.colors.surface_container_lowest }]}>
-          <TextInput
-            style={[styles.input, { color: theme.colors.onSurface }]}
-            placeholder="Enter YouTube Video URL..."
-            placeholderTextColor={theme.colors.outlineVariant}
-            value={url}
-            onChangeText={setUrl}
-          />
-        </View>
-
-        {/* Language Select: Scrollable chips */}
-        <Text style={[styles.label, { color: theme.colors.outlineVariant }]}>Select Translation Key</Text>
-        <View style={styles.langContainer}>
-          {['en', 'es', 'fr', 'de'].map((lang) => (
-            <TouchableOpacity
-              key={lang}
-              style={[
-                styles.langChip,
-                {
-                  backgroundColor: selectedLang === lang ? theme.colors.primaryContainer : theme.colors.surface_container_low,
-                },
-              ]}
-              onPress={() => setSelectedLang(lang)}
-            >
-              <Text
+          {/* Language Select */}
+          <Text style={[styles.label, { color: theme.colors.outlineVariant }]}>Select Translation Key</Text>
+          <View style={styles.langContainer}>
+            {['en', 'es', 'fr', 'de'].map((lang) => (
+              <TouchableOpacity
+                key={lang}
                 style={[
-                  styles.langChipText,
+                  styles.langChip,
                   {
-                    color: selectedLang === lang ? theme.colors.onPrimaryContainer : theme.colors.onSurface,
+                    backgroundColor: selectedLang === lang ? theme.colors.primaryContainer : theme.colors.surface_container_low,
                   },
                 ]}
+                onPress={() => setSelectedLang(lang)}
               >
-                {lang.toUpperCase()}
-              </Text>
-            </TouchableOpacity>
-          ))}
+                <Text
+                  style={[
+                    styles.langChipText,
+                    {
+                      color: selectedLang === lang ? theme.colors.onPrimaryContainer : theme.colors.onSurface,
+                    },
+                  ]}
+                >
+                  {lang.toUpperCase()}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+          <Button
+            mode="contained"
+            onPress={handleIngest}
+            buttonColor={theme.colors.primary}
+            textColor={theme.colors.onPrimary}
+            style={styles.ingestButton}
+            labelStyle={styles.buttonLabel}
+          >
+            Add to Index
+          </Button>
         </View>
-
+        {/* 2. List component for uploaded links */}
+        <View style={[styles.sectionCard, { backgroundColor: theme.colors.surface_container }]}>
+          <Text style={[styles.sectionTitle, { color: theme.colors.primary }]}>Indexed Registry</Text>
+          {videoList.length === 0 ? (
+            <Text style={[styles.emptyText, { color: theme.colors.outlineVariant }]}>No indexed documents found.</Text>
+          ) : (
+            videoList.map((item) => {
+              const statusConfig = getStatusStyle(item.status);
+              return (
+                <TouchableOpacity
+                  key={item.id}
+                  style={[styles.listItem, { backgroundColor: theme.colors.surface_container_low }]}
+                  onPress={() => {
+                    const nav = (props as any).navigation;
+                    if (nav) nav.navigate('VideoDetail', { video: item });
+                  }}
+                >
+                  <View style={styles.listItemHeader}>
+                    <Text style={[styles.listItemTitle, { color: theme.colors.onSurface }]}>{item.title}</Text>
+                    <Text style={[styles.statusBadge, { color: statusConfig.color }]}>{statusConfig.text}</Text>
+                  </View>
+                  <Text style={[styles.listItemUrl, { color: theme.colors.outlineVariant }]}>{item.url}</Text>
+                </TouchableOpacity>
+              );
+            })
+          )}
+        </View>
+        {/* 3. Insight Block */}
+        <InsightBlock
+          title="Archivist Notes"
+          content="This monorepo registry indexes video transcriptions, generates markdown logs via Gemini generative processing, and stores snapshots under grandfather-father-son versioning."
+        />
+        {/* 4. Primary Sync Action Button */}
         <Button
           mode="contained"
-          onPress={handleIngest}
-          buttonColor={theme.colors.primary}
-          textColor={theme.colors.onPrimary}
-          style={styles.ingestButton}
+          onPress={onSync}
+          buttonColor={theme.colors.primaryContainer}
+          textColor={theme.colors.onPrimaryContainer}
+          style={styles.syncButton}
           labelStyle={styles.buttonLabel}
         >
-          Add to Index
+          Sync Registry with Remote Host
         </Button>
-      </View>
-
-      {/* 3. List component for uploaded links: No Dividers, Padding and Tonal Shifts Only */}
-      <View style={[styles.sectionCard, { backgroundColor: theme.colors.surface_container }]}>
-        <Text style={[styles.sectionTitle, { color: theme.colors.primary }]}>Indexed Registry</Text>
-        {videoList.length === 0 ? (
-          <Text style={[styles.emptyText, { color: theme.colors.outlineVariant }]}>No indexed documents found.</Text>
-        ) : (
-          videoList.map((item) => {
-            const statusConfig = getStatusStyle(item.status);
-            return (
-              <View
-                key={item.id}
-                style={[styles.listItem, { backgroundColor: theme.colors.surface_container_low }]}
-              >
-                <View style={styles.listItemHeader}>
-                  <Text style={[styles.listItemTitle, { color: theme.colors.onSurface }]}>
-                    {item.title}
-                  </Text>
-                  <Text style={[styles.statusBadge, { color: statusConfig.color }]}>
-                    {statusConfig.text}
-                  </Text>
-                </View>
-                <Text style={[styles.listItemUrl, { color: theme.colors.outlineVariant }]}>
-                  {item.url}
-                </Text>
-              </View>
-            );
-          })
-        )}
-      </View>
-
-      {/* 4. Insight Block: Left 2px border */}
-      <InsightBlock
-        title="Archivist Notes"
-        content="This monorepo registry indexes video transcriptions, generates markdown logs via Gemini generative processing, and stores snapshots under grandfather-father-son versioning."
-      />
-
-      {/* 5. Primary Sync Action Button */}
-      <Button
-        mode="contained"
-        onPress={onSync}
-        buttonColor={theme.colors.primaryContainer}
-        textColor={theme.colors.onPrimaryContainer}
-        style={styles.syncButton}
-        labelStyle={styles.buttonLabel}
-      >
-        Sync Registry with Remote Host
-      </Button>
-
-      {/* Spacing bottom */}
-      <View style={{ height: 48 }} />
-    </ScrollView>
+        {/* Bottom spacing */}
+        <View style={{ height: 48 }} />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-  },
-  headerCard: {
-    padding: 20,
-    borderRadius: 4,
-    marginBottom: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  headerSubtitle: {
-    fontFamily: 'Inter',
-    fontSize: 10,
-    fontWeight: '700',
-    letterSpacing: 1.5,
-    marginBottom: 4,
-  },
-  headerTitle: {
-    fontFamily: 'serif', // Newsreader/EB Garamond fallback
-    fontSize: 24,
-    fontWeight: '700',
-  },
-  statusContainer: {
-    alignItems: 'flex-end',
-  },
-  statusRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
-  dot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    marginRight: 6,
-  },
-  statusText: {
-    fontFamily: 'Inter',
-    fontSize: 12,
-    fontWeight: '500',
-  },
-  lastSyncedText: {
-    fontFamily: 'Inter',
-    fontSize: 10,
   },
   sectionCard: {
     padding: 20,
@@ -232,7 +158,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   sectionTitle: {
-    fontFamily: 'serif', // Newsreader/EB Garamond fallback
+    fontFamily: 'serif',
     fontSize: 20,
     fontWeight: '600',
     marginBottom: 16,
@@ -337,3 +263,5 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
 });
+
+export default DashboardScreen;

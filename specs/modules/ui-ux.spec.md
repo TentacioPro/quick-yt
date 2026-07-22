@@ -10,7 +10,18 @@
 - **UI Library:** React Native Paper v5 (Material Design 3)
 - **Provider:** `<PaperProvider>` wraps entire app tree. Must be child of `<SafeAreaProvider>`.
 - **Target Device:** Pixel 8a — notch-aware layouts required via `SafeAreaProvider`.
-- **Typography:** React Native Paper default MD3 type scale. Custom font overrides deferred.
+- **Typography:** React Native Paper default MD3 type scale. Custom font overrides deferred, but should lean toward Newsreader/Inter.
+
+### 1.1 Native Android UX Mandates
+- **Navigation:** Must support hardware back-button routing natively.
+- **Drawer:** Must support swipe-from-left gesture to open the Drawer navigation.
+- **Touchables:** All touchable surfaces must utilize native `android_ripple` effects. Do not use generic opacity fades (e.g. `TouchableOpacity` should be replaced or wrapped to support ripples on Android).
+- **Haptics:** Systematic `expo-haptics` feedback must be paired with primary interactions (light for selections, medium for buttons, heavy for errors/success).
+
+### 1.2 Theme Constraints (Intellectual Noir)
+- **Palette:** Deep charcoals for backgrounds, amber accents for highlights.
+- **Typography:** Serif headers.
+- **Layout:** Sleek and continuous. Absolutely no dividing lines or borders. Use spacing and depth (shadows/elevation) to separate content.
 
 ---
 

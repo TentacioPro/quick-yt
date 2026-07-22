@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed": "#e2e1f6",
+                "surface-bright": "#363941",
+                "on-tertiary-fixed": "#191a29",
+                "on-secondary-fixed-variant": "#274773",
+                "on-primary-container": "#6f6349",
+                "secondary-fixed-dim": "#a9c8fb",
+                "surface-container-low": "#191c23",
+                "on-primary-fixed-variant": "#50462e",
+                "on-tertiary-container": "#626375",
+                "error-container": "#93000a",
+                "primary-fixed": "#f2e1c1",
+                "error": "#ffb4ab",
+                "surface-container": "#1d2027",
+                "tertiary-container": "#e2e1f6",
+                "on-error": "#690005",
+                "secondary-container": "#274773",
+                "on-secondary-fixed": "#001c3b",
+                "on-surface": "#e0e2ec",
+                "primary-fixed-dim": "#d5c5a6",
+                "surface": "#10131a",
+                "background": "#10131a",
+                "on-surface-variant": "#cec5b9",
+                "on-primary": "#392f1a",
+                "on-error-container": "#ffdad6",
+                "surface-container-high": "#272a31",
+                "surface-container-lowest": "#0b0e15",
+                "surface-container-highest": "#32353c",
+                "outline": "#979085",
+                "secondary": "#a9c8fb",
+                "tertiary": "#ffffff",
+                "inverse-primary": "#695d44",
+                "primary": "#ffffff",
+                "inverse-on-surface": "#2d3038",
+                "surface-tint": "#d5c5a6",
+                "primary-container": "#f2e1c1",
+                "on-primary-fixed": "#231a07",
+                "surface-dim": "#10131a",
+                "on-background": "#e0e2ec",
+                "outline-variant": "#4b463d",
+                "on-secondary-container": "#98b7e9",
+                "on-secondary": "#0a315b",
+                "inverse-surface": "#e0e2ec",
+                "on-tertiary-fixed-variant": "#454556",
+                "surface-variant": "#32353c",
+                "tertiary-fixed-dim": "#c5c5d9",
+                "secondary-fixed": "#d5e3ff",
+                "on-tertiary": "#2e2f3f",
+                "canvas": "#FFFFFF",
+                "surface-low": "#F5F5F5",
+                "surface-high": "#E0E0E0",
+                "primary-ink": "#000000",
+                "secondary-ink": "#424242",
+                "accent-amber": "#FFB300"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "sidebar-width": "280px",
+                "section-gap": "32px",
+                "gutter": "24px",
+                "container-padding": "24px",
+                "element-gap": "16px"
+        },
+        "fontFamily": {
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-lg": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-lg": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script></head><body class="bg-canvas text-primary-ink font-body-md">
+<!-- Sidebar Navigation (Collapsed/Hidden focus on desktop, showing rail) -->
+<aside class="fixed left-0 top-0 h-full w-20 flex flex-col items-center pt-24 bg-surface-low z-40 hidden md:flex">
+<div class="flex flex-col gap-8">
+<a class="text-secondary-ink hover:bg-surface-high p-3 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined">video_library</span>
+</a>
+<a class="text-secondary-ink hover:bg-surface-high p-3 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+</a>
+<a class="text-primary-ink bg-surface-high p-3 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>settings_input_component</span>
+</a>
+<a class="text-secondary-ink hover:bg-surface-high p-3 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined">description</span>
+</a>
+<a class="text-secondary-ink hover:bg-surface-high p-3 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</div>
+</aside>
+<!-- Top Menu Row -->
+<header class="w-full flex items-center px-container-padding h-[56px] md:ml-20">
+<button class="hover:bg-surface-low transition-colors p-2 -ml-2 rounded-full duration-100">
+<span class="material-symbols-outlined text-primary-ink">menu</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="pb-section-gap px-container-padding md:ml-20 min-h-screen">
+<!-- Title & Description -->
+<section class="mb-section-gap mt-4">
+<h1 class="text-4xl md:text-5xl font-bold text-primary-ink tracking-tight font-body-lg">System Metrics</h1>
+<p class="text-secondary-ink text-body-lg mt-3">Monitor your processing nodes and infrastructure health</p>
+</section>
+<!-- Actions -->
+<section class="mb-section-gap">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex gap-2">
+<button class="bg-surface-high px-4 py-2 rounded font-label-lg text-label-lg text-primary-ink hover:bg-surface-high/80 transition-colors">
+                        Refresh Node
+                    </button>
+<button class="bg-primary-ink px-4 py-2 rounded font-label-lg text-label-lg text-canvas hover:brightness-110 transition-colors">
+                        Manage Clusters
+                    </button>
+</div>
+</div>
+</section>
+<!-- Metric Counters Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-gap">
+<!-- CPU Load -->
+<div class="bg-surface-low p-[24px] flex flex-col justify-between h-48 transition-colors">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-label-lg font-label-lg text-secondary-ink uppercase tracking-wider">CPU Load</span>
+<span class="text-primary-ink material-symbols-outlined text-sm">memory</span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-5xl font-body-lg font-semibold text-primary-ink">42.8<span class="text-2xl text-secondary-ink ml-1">%</span></span>
+</div>
+</div>
+<div class="w-full h-12 mt-4 relative overflow-hidden">
+<svg class="w-full h-full stroke-primary-ink/30 fill-none" viewbox="0 0 200 40">
+<path d="M0,35 Q10,15 20,30 T40,25 T60,35 T80,20 T100,30 T120,10 T140,25 T160,20 T180,35 T200,15" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<!-- Memory Usage -->
+<div class="bg-surface-low p-[24px] flex flex-col justify-between h-48 transition-colors">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-label-lg font-label-lg text-secondary-ink uppercase tracking-wider">Memory Usage</span>
+<span class="text-primary-ink material-symbols-outlined text-sm">database</span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-5xl font-body-lg font-semibold text-primary-ink">12.4<span class="text-2xl text-secondary-ink ml-1">GB</span></span>
+</div>
+</div>
+<div class="w-full h-12 mt-4 relative overflow-hidden">
+<svg class="w-full h-full stroke-primary-ink/30 fill-none" viewbox="0 0 200 40">
+<path d="M0,20 Q15,25 30,22 T60,28 T90,20 T120,25 T150,15 T180,22 T200,20" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<!-- Ingress Throughput -->
+<div class="bg-surface-low p-[24px] flex flex-col justify-between h-48 transition-colors">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-label-lg font-label-lg text-secondary-ink uppercase tracking-wider">Ingress Throughput</span>
+<span class="text-primary-ink material-symbols-outlined text-sm">bolt</span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-5xl font-body-lg font-semibold text-primary-ink">2.1<span class="text-2xl text-secondary-ink ml-1">Gb/s</span></span>
+</div>
+</div>
+<div class="w-full h-12 mt-4 relative overflow-hidden">
+<svg class="w-full h-full stroke-primary-ink/30 fill-none" viewbox="0 0 200 40">
+<path d="M0,38 L20,32 L40,35 L60,10 L80,25 L100,5 L120,15 L140,28 L160,8 L180,12 L200,2" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+</section>
+<!-- System Audit Log Section -->
+<section>
+<div class="flex items-center justify-between mb-element-gap">
+<h3 class="text-2xl font-bold font-body-lg text-primary-ink">System Audit Log</h3>
+<div class="text-label-md text-secondary-ink">Live streaming active</div>
+</div>
+<div class="bg-canvas border-t border-surface-high">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-secondary-ink font-label-lg text-label-lg uppercase tracking-widest border-b border-surface-high">
+<th class="py-4 font-semibold">Timestamp</th>
+<th class="py-4 font-semibold">Event Type</th>
+<th class="py-4 font-semibold">Technical Details</th>
+<th class="py-4 font-semibold text-right">Status</th>
+</tr>
+</thead>
+<tbody class="mono text-label-md">
+<!-- Entry 1 -->
+<tr class="border-b border-surface-high/50 group">
+<td class="py-4 text-secondary-ink whitespace-nowrap">2023-10-27 14:22:01.442</td>
+<td class="py-4 font-semibold text-primary-ink">AUTH_VALIDATION</td>
+<td class="py-4 text-secondary-ink max-w-md truncate">
+                                    [QuickYT-Internal] Token signature verification for client ID: 0x82...FA29
+                                </td>
+<td class="py-4 text-right">
+<span class="bg-surface-low text-primary-ink px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-tighter">Success</span>
+</td>
+</tr>
+<!-- Entry 2 -->
+<tr class="border-b border-surface-high/50 group">
+<td class="py-4 text-secondary-ink whitespace-nowrap">2023-10-27 14:21:58.910</td>
+<td class="py-4 font-semibold text-primary-ink">INGRESS_REQUEST</td>
+<td class="py-4 text-secondary-ink max-w-md truncate">
+                                    POST /api/v1/stream/upload - Content-Length: 4.2GB exceeding threshold
+                                </td>
+<td class="py-4 text-right">
+<span class="bg-surface-high text-primary-ink px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-tighter">Rejected</span>
+</td>
+</tr>
+<!-- Entry 3 -->
+<tr class="border-b border-surface-high/50 group">
+<td class="py-4 text-secondary-ink whitespace-nowrap">2023-10-27 14:21:45.002</td>
+<td class="py-4 font-semibold text-primary-ink">REDIS_PONG</td>
+<td class="py-4 text-secondary-ink max-w-md truncate">
+                                    Heartbeat latency: 4ms. All 12 clusters responsive.
+                                </td>
+<td class="py-4 text-right">
+<span class="bg-surface-low text-primary-ink px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-tighter">Success</span>
+</td>
+</tr>
+<!-- Entry 4 -->
+<tr class="border-b border-surface-high/50 group">
+<td class="py-4 text-secondary-ink whitespace-nowrap">2023-10-27 14:21:30.129</td>
+<td class="py-4 font-semibold text-primary-ink">SSL_HANDSHAKE</td>
+<td class="py-4 text-secondary-ink max-w-md truncate">
+                                    TLS 1.3 Negotiation - Cipher: TLS_AES_256_GCM_SHA384
+                                </td>
+<td class="py-4 text-right">
+<span class="bg-surface-low text-primary-ink px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-tighter">Success</span>
+</td>
+</tr>
+<!-- Entry 5 -->
+<tr class="border-b border-surface-high/50 group">
+<td class="py-4 text-secondary-ink whitespace-nowrap">2023-10-27 14:21:12.775</td>
+<td class="py-4 font-semibold text-primary-ink">CACHE_PURGE</td>
+<td class="py-4 text-secondary-ink max-w-md truncate">
+                                    Manual purge requested for bucket 'research-vault-01'
+                                </td>
+<td class="py-4 text-right">
+<span class="bg-surface-low text-primary-ink px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-tighter">Success</span>
+</td>
+</tr>
+<!-- Entry 6 -->
+<tr class="group">
+<td class="py-4 text-secondary-ink whitespace-nowrap">2023-10-27 14:20:55.021</td>
+<td class="py-4 font-semibold text-primary-ink">DB_MIGRATION</td>
+<td class="py-4 text-secondary-ink max-w-md truncate">
+                                    Schema lock timeout - Process 9912 waiting for IO
+                                </td>
+<td class="py-4 text-right">
+<span class="bg-surface-high text-primary-ink px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-tighter">Rejected</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<script class="">
+        // Micro-interaction for numbers to count up or flicker slightly like a real terminal
+        document.querySelectorAll('.font-headline-md').forEach(el => {
+            setInterval(() => {
+                const val = parseFloat(el.</script>
+</body></html>

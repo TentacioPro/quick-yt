@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            theme: {
+                extend: {
+                    "colors": {
+                        "canvas": "#FFFFFF",
+                        "surface-low": "#F5F5F5",
+                        "surface-high": "#E0E0E0",
+                        "primary-ink": "#000000",
+                        "secondary-ink": "#424242",
+                        "accent-amber": "#FFB300",
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "ui": ["Inter"],
+                        "body": ["Inter"],
+                    }
+                }
+            }
+        }
+    }catch(_e){}</script></head><body class="bg-canvas text-secondary-ink font-body overflow-hidden">
+<!-- Background Content Shell (Simulating Dashboard) -->
+<div class="relative min-h-screen w-full p-6 opacity-40 select-none pointer-events-none">
+<header class="flex justify-between items-center mb-8 h-14">
+<span class="material-symbols-outlined text-primary-ink">menu</span>
+<h1 class="font-headline text-[28px] font-semibold text-primary-ink">QuickYT</h1>
+<span class="material-symbols-outlined text-primary-ink">search</span>
+</header>
+<div class="grid grid-cols-1 gap-[32px]">
+<div class="h-48 bg-surface-low rounded-[4px]"></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-32 bg-surface-low rounded-[4px]"></div>
+<div class="h-32 bg-surface-low rounded-[4px]"></div>
+</div>
+<div class="h-64 bg-surface-low rounded-[4px]"></div>
+</div>
+</div>
+<!-- Scrim (Overlay) -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity duration-300"></div>
+<!-- Navigation Drawer (Predicted Component: NavigationDrawer) -->
+<aside class="fixed inset-y-0 left-0 w-[80%] max-w-[320px] bg-canvas z-50 flex flex-col p-6 transition-transform duration-300 ease-in-out shadow-2xl border-r border-surface-high" id="main-nav">
+<!---->
+<div class="flex flex-col mb-12 relative">
+<div class="flex items-center justify-center mb-4">
+<span class="font-headline text-[32px] font-semibold text-primary-ink tracking-tight">QuickYT</span>
+<button class="absolute top-0 right-0 p-2 hover:bg-surface-low rounded-none transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-secondary-ink">close</span>
+</button>
+</div>
+
+</div>
+<!-- Navigation Links -->
+<nav class="flex-grow flex flex-col gap-2 overflow-y-auto">
+<!-- Home (Inactive) -->
+<a class="flex items-center gap-4 px-[24px] py-4 text-secondary-ink hover:bg-surface-low transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined transition-colors" data-icon="home">grid_view</span>
+<span class="font-ui text-[16px] font-semibold">Home</span>
+</a>
+<!-- Dashboard (Active State Mapping) -->
+<a class="flex items-center gap-4 px-[24px] py-4 bg-primary-ink text-canvas transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined active-icon" data-icon="dashboard" style="font-variation-settings: &quot;FILL&quot; 1;">analytics</span>
+<span class="font-ui text-[16px] font-semibold">Dashboard</span>
+</a>
+<!-- Video Index (Inactive) -->
+<a class="flex items-center gap-4 px-[24px] py-4 text-secondary-ink hover:bg-surface-low transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined transition-colors" data-icon="video_library">library_books</span>
+<span class="font-ui text-[16px] font-semibold">Research Library</span>
+</a>
+<!-- Reports (Inactive) -->
+<a class="flex items-center gap-4 px-[24px] py-4 text-secondary-ink hover:bg-surface-low transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined transition-colors" data-icon="assessment">description</span>
+<span class="font-ui text-[16px] font-semibold">Reports</span>
+</a>
+<!-- System Metrics (Inactive) -->
+<a class="flex items-center gap-4 px-[24px] py-4 text-secondary-ink hover:bg-surface-low transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined transition-colors" data-icon="health_and_safety">memory</span>
+<span class="font-ui text-[16px] font-semibold">System Metrics</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="flex items-center gap-4 px-[24px] py-4 text-secondary-ink hover:bg-surface-low transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined transition-colors" data-icon="settings">settings_suggest</span>
+<span class="font-ui text-[16px] font-semibold">Settings</span>
+</a>
+</nav>
+<!-- Footer Action (Contextual Button) -->
+<div class="mt-auto pt-8 border-t border-surface-high">
+<button class="w-full bg-primary-ink text-canvas py-4 px-6 flex items-center justify-center gap-3 font-ui text-[14px] font-semibold active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 600;">add</span>
+<span class="">New Analysis</span>
+</button>
+<div class="mt-8 flex items-center gap-4 p-[24px] bg-surface-low">
+<div class="w-10 h-10 overflow-hidden bg-surface-high flex-shrink-0">
+<img class="w-full h-full object-cover grayscale" data-alt="A professional headshot of a high-tech software researcher in a minimalist studio environment. The lighting is cold and clinical, with blue and slate tones that reflect a sophisticated digital professional vibe. The background is a dark, out-of-focus server room with tiny blinking status lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA572WkHPCOgwjbPL28G5KePduyPWuLTG0Dy8BCUy3wNxugSMF7NZQLk6DTXMAiyGz8uV2uEuTXHNRYqBejTDkLlj4NGPCsIVT_1hWCkP9uF_yjAOPevjhOKwkvvGG-Atjaptz31k5G5o0Zvx92pg1wpBrHyf_V9X8vJot4BJcWC0YkT2Uwd614WAjr3lG_N5t_IBvbjd9hDuLErF1PgKO23szVfYfMhmJp97yVQAtJTw_8JuZAm4fKY6FRkbJTTrjf9DCbZOSNFauE">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-[14px] font-semibold font-ui text-primary-ink truncate">Alex Rivera</span>
+<span class="text-[12px] font-medium font-ui text-secondary-ink truncate">Lead Analyst</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-secondary-ink">logout</span>
+</div>
+</div>
+</aside>
+<script class="">
+        // Simple logic to demonstrate interactivity if needed
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Clear existing active states
+                document.querySelectorAll('nav a').forEach(l => {
+                    l.classList.remove('bg-primary-ink', 'text-canvas');
+                    l.classList.add('text-secondary-ink', 'hover:bg-surface-low');
+                    const icon = l.querySelector('.material-symbols-outlined');
+                    if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+                });
+                
+                // Set new active state
+                link.classList.remove('text-secondary-ink', 'hover:bg-surface-low');
+                link.classList.add('bg-primary-ink</script>
+
+</body></html>

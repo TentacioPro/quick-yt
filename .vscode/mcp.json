@@ -1,7 +1,0 @@
-{
-  "mcpServers": {
-    "quick-yt-mcp": {
-      "url": "http://localhost:4101/sse"
-    }
-  }
-}

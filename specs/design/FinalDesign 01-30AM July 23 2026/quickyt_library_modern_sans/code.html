@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed": "#e2e1f6",
+                "surface-bright": "#363941",
+                "on-tertiary-fixed": "#191a29",
+                "on-secondary-fixed-variant": "#274773",
+                "on-primary-container": "#6f6349",
+                "secondary-fixed-dim": "#a9c8fb",
+                "surface-container-low": "#191c23",
+                "on-primary-fixed-variant": "#50462e",
+                "on-tertiary-container": "#626375",
+                "error-container": "#93000a",
+                "primary-fixed": "#f2e1c1",
+                "error": "#ffb4ab",
+                "surface-container": "#1d2027",
+                "tertiary-container": "#e2e1f6",
+                "on-error": "#690005",
+                "secondary-container": "#274773",
+                "on-secondary-fixed": "#001c3b",
+                "on-surface": "#e0e2ec",
+                "primary-fixed-dim": "#d5c5a6",
+                "surface": "#10131a",
+                "background": "#10131a",
+                "on-surface-variant": "#cec5b9",
+                "on-primary": "#392f1a",
+                "on-error-container": "#ffdad6",
+                "surface-container-high": "#272a31",
+                "surface-container-lowest": "#0b0e15",
+                "surface-container-highest": "#32353c",
+                "outline": "#979085",
+                "secondary": "#a9c8fb",
+                "tertiary": "#ffffff",
+                "inverse-primary": "#695d44",
+                "primary": "#ffffff",
+                "inverse-on-surface": "#2d3038",
+                "surface-tint": "#d5c5a6",
+                "primary-container": "#f2e1c1",
+                "on-primary-fixed": "#231a07",
+                "surface-dim": "#10131a",
+                "on-background": "#e0e2ec",
+                "outline-variant": "#4b463d",
+                "on-secondary-container": "#98b7e9",
+                "on-secondary": "#0a315b",
+                "inverse-surface": "#e0e2ec",
+                "on-tertiary-fixed-variant": "#454556",
+                "surface-variant": "#32353c",
+                "tertiary-fixed-dim": "#c5c5d9",
+                "secondary-fixed": "#d5e3ff",
+                "on-tertiary": "#2e2f3f"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "sidebar-width": "280px",
+                "section-gap": "32px",
+                "gutter": "24px",
+                "container-padding": "24px",
+                "element-gap": "16px"
+        },
+        "fontFamily": {
+                "body-lg": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "label-lg": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-lg": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "38px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+}catch(_e){}</script></head><body class="font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 z-40 bg-transparent flex items-center px-container-padding h-[64px]">
+<button class="text-black cursor-pointer active:opacity-80 p-2 hover:bg-[#E0E0E0] transition-colors rounded-sm -ml-2" id="menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Navigation Drawer (Shell) -->
+<div class="relative" id="drawer-wrapper">
+<div class="drawer-overlay fixed inset-0 bg-black/60 z-40" id="overlay"></div>
+<aside class="navigation-drawer fixed inset-y-0 left-0 w-80 z-50 -translate-x-full bg-white flex flex-col p-base gap-stack-tight" id="drawer">
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-black">QuickYT Research</h2>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Home -->
+<a class="flex items-center gap-4 px-4 py-3 text-[#424242] hover:bg-[#E0E0E0] transition-all duration-300 rounded-sm" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-md">Home</span>
+</a>
+<!-- Dashboard -->
+<a class="flex items-center gap-4 px-4 py-3 text-[#424242] hover:bg-[#E0E0E0] transition-all duration-300 rounded-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<!-- Video Index (Active) -->
+<a class="flex items-center gap-4 px-4 py-3 bg-black text-white rounded-sm transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">video_library</span>
+<span class="font-body-md font-semibold">Video Index</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-4 px-4 py-3 text-[#424242] hover:bg-[#E0E0E0] transition-all duration-300 rounded-sm" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-body-md">Reports</span>
+</a>
+<!-- Health -->
+<a class="flex items-center gap-4 px-4 py-3 text-[#424242] hover:bg-[#E0E0E0] transition-all duration-300 rounded-sm" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
+<span class="font-body-md">System Health</span>
+</a>
+<hr class="border-t border-[#E0E0E0] my-4"/>
+<!-- Settings -->
+<a class="flex items-center gap-4 px-4 py-3 text-[#424242] hover:bg-[#E0E0E0] transition-all duration-300 rounded-sm" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+</div>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-gutter pb-[32px]">
+<!-- Page Header -->
+<div class="mb-[32px]">
+<h1 class="text-headline-lg font-bold text-black mb-2 tracking-tight">Research Library</h1>
+<p class="text-body-lg text-[#424242]">Access and manage your indexed video archives and metadata</p>
+</div>
+<!-- Search and Filter Bar -->
+<section class="mb-[32px]">
+<div class="relative w-full max-w-2xl mx-auto">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-[#424242]">link</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 bg-[#F5F5F5] text-black border-none rounded-sm focus:ring-2 focus:ring-black focus:bg-[#E0E0E0] transition-all placeholder:text-[#424242]/70 font-sans italic" placeholder="Enter research URL or query..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center gap-2">
+<button class="p-2 hover:bg-[#E0E0E0] rounded-sm text-[#424242]">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Stats Overview (Subtle Tonal Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-element-gap mb-[32px]">
+<div class="bg-[#F5F5F5] p-[24px] rounded-sm flex flex-col gap-1">
+<span class="text-label-md text-[#424242] uppercase tracking-widest font-semibold">Total Archives</span>
+<span class="text-headline-md font-headline-md text-black">1,248</span>
+</div>
+<div class="bg-[#F5F5F5] p-[24px] rounded-sm flex flex-col gap-1">
+<span class="text-label-md text-[#424242] uppercase tracking-widest font-semibold">Storage Used</span>
+<span class="text-headline-md font-headline-md text-black">84.2 GB</span>
+</div>
+<div class="bg-[#F5F5F5] p-[24px] rounded-sm flex flex-col gap-1">
+<span class="text-label-md text-[#424242] uppercase tracking-widest font-semibold">Recent Activity</span>
+<span class="text-headline-md font-headline-md text-black">12 Today</span>
+</div>
+</div>
+<!-- Video List Feed -->
+<section class="flex flex-col gap-[32px]">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-md text-headline-md text-black">Archive Catalog</h3>
+<div class="flex gap-2">
+<button class="bg-[#F5F5F5] px-4 py-2 rounded-sm text-label-lg text-black flex items-center gap-2 hover:bg-[#E0E0E0] transition-colors font-semibold">
+<span class="material-symbols-outlined text-[18px]">sort</span>
+                        Date Added
+                    </button>
+</div>
+</div>
+<!-- Video Card 1 -->
+<div class="bg-[#F5F5F5] rounded-sm overflow-hidden flex flex-col md:flex-row video-card-hover transition-colors cursor-pointer group">
+<div class="md:w-72 h-48 md:h-auto overflow-hidden relative">
+<img alt="Research video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale-[0.3] group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDze2laNH4GM2cPvOqsbXxoBq5u_YaNO7A5QC8jFLYTNCrIR74NCL_F-diI94Q04OjU5Pq8WHCUpjmokoUgRDUqbO_6kWrFQfZSDvABNkNgsF9OBCf_EvbWuVGCoMqDgE3cjTjP_DHdqfZWdkJjc_pUSXSmzrE4aceSvsT4Gf2R7QwEVtvGYHAVBjjj4sPgC4daIY_kDycWaLcfoDzS-H36rSnOU-y36GMykE-P0256IY7hpM-eH82nVmuvkz50P9RU4qsiYd8FfZ_s"/>
+<div class="absolute bottom-2 right-2 bg-black px-2 py-1 rounded-sm text-xs text-white font-mono">14:22</div>
+<div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="p-[24px] flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-2xl text-black leading-tight">Quantitative Analysis of Market Volatility in Q3</h4>
+<span class="bg-[#E0E0E0] text-black text-[10px] font-bold uppercase tracking-tighter px-2 py-1 rounded-sm">Archived</span>
+</div>
+<p class="text-[#424242] text-body-md line-clamp-2">A deep dive into the recent fluctuations within the tech sector, focusing on semiconductor manufacturing delays and their downstream effects on retail hardware pricing.</p>
+</div>
+<div class="flex items-center gap-6 mt-4 text-[#424242] text-label-md font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                            Oct 24, 2023
+                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">history</span>
+                            Added 2h ago
+                        </div>
+<div class="flex items-center gap-1 ml-auto">
+<button class="p-2 hover:text-black transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Video Card 2 -->
+<div class="bg-[#F5F5F5] rounded-sm overflow-hidden flex flex-col md:flex-row video-card-hover transition-colors cursor-pointer group">
+<div class="md:w-72 h-48 md:h-auto overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 grayscale-[0.5] group-hover:grayscale-0" data-alt="A cinematic, high-contrast close-up of a digital interface showing complex data visualizations, financial charts, and network nodes. The lighting is moody and low-key with a slate noir aesthetic, highlighting sharp edges and deep blacks. The mood is professional, calm, and analytical, with a subtle golden amber glow on active data points." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0R8DlOFzkt8KDhJzDgpFmxY-ZjwWvg5trr1kl8dzbY5wIU43S-kjwfxjZSkw25BhP81k0woFh1ExFbRB-qdKZ6afZlP9q5tEU44vDFeYBL0J5WPJRmi-geJopdKmg1Sev8az8wqnbZIoYpJsjVzXxcsvqBNR9x-fB7tbHpKWLtaKZq0e2i_VKHtAZFJ9rA7FbUjY0ZDYIG0Uy1_TrrGvk2-4SHsclPOGIITG7DAakRNpxWmJVrgVfWMxQcflp8IrdlO20Q2tmeb1D')"></div>
+<div class="absolute bottom-2 right-2 bg-black px-2 py-1 rounded-sm text-xs text-white font-mono">08:45</div>
+<div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="p-[24px] flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-2xl text-black leading-tight">Neural Network Architectural Limitations</h4>
+<span class="bg-[#E0E0E0] text-black text-[10px] font-bold uppercase tracking-tighter px-2 py-1 rounded-sm flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">check</span>Complete</span>
+</div>
+<p class="text-[#424242] text-body-md line-clamp-2">Exploring the current bottlenecks in transformer models and the theoretical frameworks proposed for linear-time attention mechanisms.</p>
+</div>
+<div class="flex items-center gap-6 mt-4 text-[#424242] text-label-md font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                            Oct 22, 2023
+                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">history</span>
+                            Added 2d ago
+                        </div>
+<div class="flex items-center gap-1 ml-auto">
+<button class="p-2 hover:text-black transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Video Card 3 -->
+<div class="bg-[#F5F5F5] rounded-sm overflow-hidden flex flex-col md:flex-row video-card-hover transition-colors cursor-pointer group">
+<div class="md:w-72 h-48 md:h-auto overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 grayscale-[0.5] group-hover:grayscale-0" data-alt="A minimalist architectural shot of a sleek, dark modern library with tall shelves filled with obsidian-colored books. A single stream of amber light cuts through the darkness, illuminating a central research desk made of polished basalt. The atmosphere is quiet, intellectual, and authoritative, matching a slate-noir clinical design language." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAINwRBk5X3n6yednCss0pouudLqeUMjKY-Ij9oMK57gDiWiL-yk4VfoNZrEn8EI95CmcC40v4TtX5-7CmnmfWA2Gw-Y45e7sTtv45nXEdfFE6DblAQbZ9sIc4NHL_bT53mcbez5sRs61RGFpYUOrzT8PwwNsEz_JIQMEhzY0O6iUnhQi6Tu7vuodS6sgu-ra1r8_yrSYjLFTZW4Q60B9M-FcUj_NaFuL5odcHeNTPUJJ4BuRBRps64k9AdG_qckFgEj1kpLEMbg7el')"></div>
+<div class="absolute bottom-2 right-2 bg-black px-2 py-1 rounded-sm text-xs text-white font-mono">32:10</div>
+<div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="p-[24px] flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-2xl text-black leading-tight">Decentralized Finance: Security Protocols</h4>
+<span class="bg-[#FFB300]/20 text-black text-[10px] font-bold uppercase tracking-tighter px-2 py-1 rounded-sm border border-[#FFB300]">Processing</span>
+</div>
+<p class="text-[#424242] text-body-md line-clamp-2">A comprehensive review of smart contract auditing practices and common vulnerabilities found in liquidity pool implementations during the 2023 cycle.</p>
+</div>
+<div class="mt-2 h-1 w-full bg-black rounded-full overflow-hidden">
+<div class="h-full bg-[#FFB300] w-1/3"></div>
+</div>
+<div class="flex items-center gap-6 mt-4 text-[#424242] text-label-md font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                            Oct 19, 2023
+                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">history</span>
+                            Added 5d ago
+                        </div>
+<div class="flex items-center gap-1 ml-auto">
+<button class="p-2 hover:text-black transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pagination / Load More -->
+<div class="mt-[32px] flex justify-center">
+<button class="bg-black text-white px-8 py-3 rounded-sm font-label-lg font-semibold hover:bg-[#424242] transition-colors active:scale-95">
+                Load More Archives
+            </button>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-black text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined">add</span>
+</button>
+<script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const overlay = document.getElementById('overlay');
+        const drawer = document.getElementById('drawer');
+        const body = document.body;
+
+        function toggleDrawer() {
+            body.classList.toggle('drawer-open');
+        }
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleDrawer();
+        });
+
+        overlay.addEventListener('click', toggleDrawer);
+
+        // Micro-interactions for cards
+        document.querySelectorAll('.video-card-hover').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.99)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Close drawer on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && body.classList.contains('drawer-open')) {
+                toggleDrawer();
+            }
+        });
+    </script>
+</body></html>

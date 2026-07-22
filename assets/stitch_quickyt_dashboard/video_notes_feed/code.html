@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="en" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-bright": "#393939",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#474746",
+                        "on-secondary-fixed-variant": "#474746",
+                        "tertiary-fixed-dim": "#00d9fc",
+                        "secondary-fixed": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#fbbc00",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-container": "#b7b5b4",
+                        "outline": "#9c8f78",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "surface-container-highest": "#353534",
+                        "tertiary-fixed": "#aaedff",
+                        "on-tertiary-fixed": "#001f26",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-container": "#005d6d",
+                        "on-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "secondary": "#c8c6c5",
+                        "primary-fixed": "#ffdfa0",
+                        "background": "#131313",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container-high": "#2a2a2a",
+                        "outline-variant": "#504532",
+                        "on-primary-fixed-variant": "#5c4300",
+                        "tertiary-container": "#04dcff",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-primary": "#795900",
+                        "primary-fixed-dim": "#fbbc00",
+                        "on-surface-variant": "#d4c5ab",
+                        "tertiary": "#b4efff",
+                        "on-primary-container": "#6d5000",
+                        "on-secondary": "#313030",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary": "#003640",
+                        "on-primary": "#402d00",
+                        "surface": "#131313",
+                        "primary-container": "#ffbf00",
+                        "surface-variant": "#353534",
+                        "surface-container": "#201f1f",
+                        "on-background": "#e5e2e1",
+                        "primary": "#ffe2ab",
+                        "on-primary-fixed": "#261a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-gap": "16px",
+                        "container-margin-mobile": "20px",
+                        "section-gap": "48px",
+                        "inline-gap": "12px",
+                        "container-margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    }catch(_e){}</script><meta charset="utf-8"></head><body class="bg-surface text-on-surface min-h-screen relative font-body-md overflow-x-hidden pt-16 pb-20 md:pb-0 md:pl-80">
+<!-- Ambient Glow Base -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary-container blur-[150px] opacity-10"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] rounded-full bg-tertiary-container blur-[120px] opacity-5"></div>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface bg-surface-container-low dark:bg-surface-container-low shadow-none flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop h-16 md:hidden">
+<div class="flex items-center gap-inline-gap cursor-pointer active:scale-95 duration-300 ease-in-out hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary dark:text-primary">menu</span>
+<span class="font-headline-md text-headline-md text-primary dark:text-primary">QuickYT</span>
+</div>
+<div class="cursor-pointer active:scale-95 duration-300 ease-in-out hover:opacity-80 transition-opacity">
+<img alt="User profile avatar" class="w-8 h-8 rounded-full object-cover border-none" data-alt="A small, stylized avatar portrait of a user in a minimalist noir setting, characterized by deep shadows and sharp, precise features. The lighting is cinematic, utilizing stark contrasts and a subtle amber rim light to create an intellectual and mysterious atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlWnHK8Z-oE3vWCKy8srst5tvadwKG9SzHw9-eP_9QYi_c7w7AEAe_mAsBtKUwcAD1iULLHIotWi3cOo12DPP6bOD9EUnUA6AAtTgpydEypCrks0MUv41Q107gjMMMJDrs3QWDlVP_4T1q-g8CwqxsLMEBKFVtpg4ZLL6UPblNFP9cyvebLmXm2Zr1-Fx536m477gO44mSVS2XwqSEJNmrTJ2YmMjAeJQzZeH8E7QCzm5F-7aRKPF3nQRKgy5dNM7zqgoWkwuPArU">
+</div>
+</header>
+<!-- NavigationDrawer (Web) -->
+<nav class="hidden md:flex flex-col p-6 gap-stack-gap h-full w-80 fixed left-0 top-0 z-[60] bg-surface-container-low dark:bg-surface-container-low shadow-[40px_0_40px_rgba(0,0,0,0.5)] duration-300 ease-in-out">
+<div class="flex items-center gap-4 mb-section-gap">
+<img alt="QuickYT Admin" class="w-12 h-12 rounded-full object-cover" data-alt="A sharp, professional headshot avatar for a system administrator in a dark, atmospheric studio setting. The lighting emphasizes a sophisticated, intellectual aesthetic with cool shadows and a soft amber glow reflecting off the subject's glasses or features, embodying a quiet authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkBSWXUuxpVKr4uRTdPgqPVcq6I1ge6-fDWdElSiAdoHSRRLmekcB5rdOLhiFNzpz8ctYJo_yUvXXZUIy3e2vsQYfZVNaRM-qtm7ftvPBTVbQ7v0CAJCinU-GL9NmUIiWre_9g9xla3-AsCDqtt3nEzJ0PNPSQUdbU9yQdk3hpu0WF7DoyZ8G6SHt7P7DVqm4Al57q0t8GyOppQmdzqRSdZsao-IcG326qNfrVhUsHSScJlfhLd6aDXLs3pbmv1l2ZN5hvnzPNOu4">
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">QuickYT Archive</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">System Administrator</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">v2.4.0</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 w-full">
+<a class="flex items-center gap-inline-gap p-3 text-on-surface dark:text-on-surface hover:bg-surface-bright dark:hover:bg-surface-bright transition-colors font-label-md text-label-md rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Overview
+            </a>
+<a class="flex items-center gap-inline-gap p-3 text-primary dark:text-primary font-bold bg-secondary-container/20 rounded-lg hover:bg-surface-bright dark:hover:bg-surface-bright transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">video_library</span>
+                Video Manager
+            </a>
+<a class="flex items-center gap-inline-gap p-3 text-on-surface dark:text-on-surface hover:bg-surface-bright dark:hover:bg-surface-bright transition-colors font-label-md text-label-md rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">live_tv</span>
+                Live Stream
+            </a>
+<a class="flex items-center gap-inline-gap p-3 text-on-surface dark:text-primary hover:bg-surface-bright dark:hover:bg-surface-bright transition-colors font-label-md text-label-md rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">chat</span>
+                Comments
+            </a>
+<a class="flex items-center gap-inline-gap p-3 text-on-surface dark:text-on-surface hover:bg-surface-bright dark:hover:bg-surface-bright transition-colors font-label-md text-label-md rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">copyright</span>
+                Copyright
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="relative z-10 px-container-margin-mobile md:px-container-margin-desktop py-8 max-w-[1200px] mx-auto">
+<header class="mb-section-gap">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-2">Video Notes Archive</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Curated insights and chronological observations from the cinematic library. Search or filter to locate specific analytical points.</p>
+</header>
+<!-- Bento Grid Layout for Notes -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-gap">
+<!-- Note Card 1 (Large Span) -->
+<article class="col-span-1 md:col-span-8 bg-surface-container-high rounded-xl p-6 relative overflow-hidden group">
+<!-- Blurred Thumbnail Background -->
+<div class="absolute inset-0 z-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500 bg-cover bg-center" data-alt="A heavily blurred, abstract cinematic frame from an art-house film, featuring deep blacks and a singular, vibrant amber light source piercing through mist. The composition is atmospheric, moody, and highly textured, creating a sense of depth and mystery consistent with an intellectual noir aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfkt_t1IeO4zvHoMQutgJP3BXDBLdJY6_Hs4fLqgPa5cz4kjwCEPOGN5pOOmaZ5A-MWft8tAOYf9qLKH7mecGoUxQQPwRnSGU5nfyhwmwEG-_EE1bh1kRFyRuqHD9C6LHjNR6uzqmGOPcBEvp-bZ0iZ-L_kN6PxoiEQlR_rzTGBPQECC48HplmY1wNyWIAd0nr4AnvrGm3k_WYXLQsSYHBbI9mLsMi27MUHBby3KNR7qr0GBLA6xtxqA_BGwJtOyOR1Mzf_gVIHb8')"></div>
+<div class="absolute inset-0 z-0 bg-gradient-to-t from-surface-container-high via-surface-container-high/80 to-transparent"></div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-lg text-headline-lg text-primary-fixed leading-tight">The Architecture of Silence in Tarkovsky's Stalker</h2>
+<span class="font-mono text-label-sm text-surface-tint opacity-80 border border-outline-variant px-2 py-1 rounded">14:32</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            Observation on the spatial pacing. The camera lingers on the decaying industrial texture for a full 45 seconds before dialogue commences. This creates a vacuum that the viewer is forced to inhabit mentally. The amber glow in the background implies an unseen hazard. Note for synthesis: compare this extended pause to the opening sequence of Blade Runner 2049.
+                        </p>
+</div>
+<div class="mt-stack-gap flex gap-inline-gap">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface">Pacing</span>
+<span class="bg-surface-container-highest px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface">Cinematography</span>
+</div>
+</div>
+</article>
+<!-- Note Card 2 (Small Span) -->
+<article class="col-span-1 md:col-span-4 bg-surface-container-high rounded-xl p-6 relative flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Color Grading Analysis</h3>
+<div class="font-mono text-label-sm text-surface-tint mb-4 opacity-70">03:15 - 04:20</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        The shift from cold blues to desaturated greens signifies the protagonist's emotional detachment. The black levels are crushed deliberately here to hide background details, forcing focus onto the central action.
+                    </p>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="text-primary hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined">edit_note</span>
+</button>
+</div>
+</article>
+<!-- Note Card 3 (Small Span) -->
+<article class="col-span-1 md:col-span-4 bg-surface-container-high rounded-xl p-6 relative flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Audio Motif Recursion</h3>
+<div class="font-mono text-label-sm text-surface-tint mb-4 opacity-70">58:09</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        The low-frequency hum introduced in act one returns here, pitched slightly higher. It creates subconscious tension without needing visual cues. A masterclass in subtle auditory anxiety.
+                    </p>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="text-primary hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined">edit_note</span>
+</button>
+</div>
+</article>
+<!-- Note Card 4 (Medium Span) -->
+<article class="col-span-1 md:col-span-8 bg-surface-container-high rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500 bg-cover bg-center" data-alt="A deeply shadowed, high-contrast monochrome still of a sprawling urban landscape at night. Subtle, selective coloring highlights a single, glowing neon sign in an amber hue, adding a focal point to the intellectual noir composition, characterized by sharp geometric lines and heavy shadow." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCOcGHc2ASMrwPlWwGvCL6Lfo0qM1-TmURU9Bv-h5A6rRg4zav636hy601OPObPPmpUYaP7keDLKXQY70tMVcLHpr-v-_oKi6cmhTaOPDHspVhn7c21ktQUTT3mI4Q5Yt1dvCiHsLEzaLqOhXba7N4AXTX9hZmMYz-80nV0KKMpow97ZuqJCrrMi8aTJjPCuPE5w2UJf0hNDYinUGa75CVxPUe_PG6bMoeq9PUjQ2pxHgFCpQs4OHECTt5EEadt5GXDN3kRjNkc1bI')"></div>
+<div class="absolute inset-0 z-0 bg-surface-container-high/90"></div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-lg text-headline-lg text-primary-fixed leading-tight">Urban Isolation: Wide Shots vs. Subject Context</h2>
+<span class="font-mono text-label-sm text-surface-tint opacity-80 border border-outline-variant px-2 py-1 rounded">1:22:45</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        The director uses an extreme wide shot here not to establish location, but to establish psychological state. The subject occupies less than 5% of the frame. The negative space is oppressive. Consider tagging this for the 'Negative Space as Character' essay.
+                    </p>
+<div class="mt-stack-gap flex gap-inline-gap">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface">Composition</span>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile)-->
+
+
+</body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>System Metrics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#ffe2ab",
+                    "outline": "#9c8f78",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#fbbc00",
+                    "on-surface-variant": "#d4c5ab",
+                    "secondary-fixed": "#e5e2e1",
+                    "tertiary-fixed": "#aaedff",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed": "#001f26",
+                    "tertiary-container": "#04dcff",
+                    "tertiary": "#b4efff",
+                    "surface-bright": "#393939",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-dim": "#131313",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed": "#ffdfa0",
+                    "surface-container": "#201f1f",
+                    "on-primary-container": "#6d5000",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "surface": "#131313",
+                    "tertiary-fixed-dim": "#00d9fc",
+                    "secondary-container": "#474746",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-primary": "#795900",
+                    "on-tertiary": "#003640",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed": "#261a00",
+                    "outline-variant": "#504532",
+                    "surface-variant": "#353534",
+                    "on-tertiary-container": "#005d6d",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary": "#313030",
+                    "surface-container-highest": "#353534",
+                    "on-primary": "#402d00",
+                    "secondary": "#c8c6c5",
+                    "on-primary-fixed-variant": "#5c4300",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "primary-fixed-dim": "#fbbc00",
+                    "on-secondary-container": "#b7b5b4",
+                    "primary-container": "#ffbf00",
+                    "background": "#131313"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "inline-gap": "12px",
+                    "container-margin-desktop": "64px",
+                    "container-margin-mobile": "20px",
+                    "unit": "4px",
+                    "stack-gap": "16px",
+                    "section-gap": "48px"
+            },
+            "fontFamily": {
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Playfair Display"
+                    ],
+                    "headline-xl": [
+                            "Playfair Display"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Playfair Display"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Playfair Display"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-xl": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #121212;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .amber-glow {
+            box-shadow: 0 0 20px rgba(255, 191, 0, 0.15);
+        }
+        .noir-card {
+            background-color: #1A1A1A;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .noir-card:hover {
+            background-color: #242424;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface flex justify-between items-center px-container-margin-mobile h-16 z-40">
+<div class="flex items-center cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-primary">menu</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary tracking-tight">QuickYT</h1>
+<div class="flex items-center gap-4 cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-primary">account_circle</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8">
+<!-- Hero Header -->
+<section class="mb-section-gap">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">System Metrics</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-xl">Real-time oversight of your archival library, computational health, and processing queues.</p>
+</section>
+<!-- Metrics Stack -->
+<div class="flex flex-col gap-8 md:gap-12">
+<!-- Card 1: Total Videos Indexed -->
+<div class="noir-card p-8 rounded-xl flex flex-col md:flex-row md:items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-6 mb-4 md:mb-0">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary-container amber-glow transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl" data-icon="movie">movie</span>
+</div>
+<div>
+<h3 class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest mb-1">Total Videos Indexed</h3>
+<p class="font-headline-lg text-headline-lg text-on-surface">15</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        +14% this month
+                    </span>
+<div class="hidden md:block mt-2 h-1 w-24 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[65%]"></div>
+</div>
+</div>
+</div>
+<!-- Card 2: Storage Used -->
+<div class="noir-card p-8 rounded-xl group cursor-pointer">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary-container amber-glow transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl" data-icon="database">database</span>
+</div>
+<div>
+<h3 class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest mb-1">Storage Capacity</h3>
+<p class="font-headline-lg text-headline-lg text-on-surface">1.2 TB / 2.0 TB</p>
+</div>
+</div>
+<p class="font-headline-md text-headline-md text-primary">60%</p>
+</div>
+<!-- Progress Bar -->
+<div aria-label="Storage Capacity Usage" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="w-full h-3 bg-surface-container-lowest rounded-full overflow-hidden relative" role="progressbar">
+<div class="absolute top-0 left-0 h-full bg-primary-container transition-all duration-1000 ease-out" style="width: 60%;"></div>
+</div>
+<div class="mt-4 flex justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Active Clusters: 04</span>
+<span class="">Last backup: 2h ago</span>
+</div>
+</div>
+<!-- Card 3: Pending Transcripts -->
+<div class="noir-card p-8 rounded-xl flex flex-col md:flex-row md:items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-6 mb-4 md:mb-0">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary-container amber-glow transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl" data-icon="description">description</span>
+</div>
+<div>
+<h3 class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest mb-1">Pending Transcripts</h3>
+<div class="flex items-baseline gap-3">
+<p class="font-headline-lg text-headline-lg text-on-surface">47</p>
+<span class="text-on-surface-variant font-body-md text-body-md italic">in processing queue</span>
+</div>
+</div>
+</div>
+<div aria-live="polite" class="flex items-center gap-3 bg-surface-container-high px-6 py-2 rounded-full" role="status">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="text-on-surface font-label-md text-label-md">System Active</span>
+</div>
+</div>
+</div>
+<!-- Atmospheric Visual Detail -->
+<section class="mt-section-gap grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+<div class="h-64 relative rounded-xl overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 p-8 flex flex-col justify-end">
+<p class="font-label-md text-label-md uppercase text-primary mb-2">Neural Analysis</p>
+<p class="text-on-surface-variant max-w-xs">AI-driven summary generation is currently optimized for high-priority archival content.</p>
+</div>
+</div>
+<div class="h-64 relative rounded-xl overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 bg-cover bg-center opacity-40" data-alt="A dark, moody cinematic close-up of high-end server rack hardware with faint amber LEDs glowing in a pitch-black data center environment. The aesthetic is intellectual, sophisticated, and noir, focusing on the precision of modern data processing equipment and the atmospheric depth of shadows and light." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTqsYWgQC6a6lrj_oOs-7N_Q7tjuYd4VzYw-CWfMNYItpaVJuQCdor7h6Yq9rSc0OoBbw3CwNylDUw2eI3b3BjFQ1yCzk-MJRCx7Ck6-EYgf25G915NDFLfLhL6efObNNwhAsDimKrQ3dCtZNYssADmGNmiBgE01e0O9juzKgb8IqW5wIZOK2sTS-pMNkVLftHqGJm6mlM3F0LL_7-0N_-OwtTtFF5jzw8yI8S0WYOGPmKkAbIfXh29uliRaFPZVVYbo0qeaRmqLA')"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-end">
+<p class="font-label-md text-label-md uppercase text-primary mb-2">Hardware Health</p>
+<p class="text-on-surface-variant max-w-xs">All primary processing nodes are operating at 99.9% efficiency under current load.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.noir-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Simulating some value changes for "live" feel
+        setInterval(() => {
+            const queueNum = document.querySelector('.font-headline-lg.text-on-surface:last-of-type');
+            if (queueNum && Math.random() > 0.7) {
+                let current = parseInt(queueNum.innerText);
+                queueNum.innerText = current + (Math.random() > 0.5 ? 1 : -1);
+            }
+        }, 5000);
+    </script>
+
+
+</body></html>

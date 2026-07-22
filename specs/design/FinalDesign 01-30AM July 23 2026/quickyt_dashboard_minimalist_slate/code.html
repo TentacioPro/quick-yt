@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Processing Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          theme: {
+            extend: {
+              "colors": {
+                "background": "#FFFFFF",
+                "primary": "#000000",
+                "secondary": "#424242",
+                "surface": "#F5F5F5",
+                "amber": "#FFB300",
+                "surface-variant": "#E0E0E0"
+              },
+              "spacing": {
+                "section": "32px",
+                "card-p": "24px"
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-primary min-h-screen antialiased flex flex-col w-full max-w-md mx-auto overflow-x-hidden">
+<!-- Top Row: Hamburger Menu -->
+<div class="px-6 py-4 flex items-center justify-start w-full">
+<button aria-label="Open menu" class="text-primary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 28px;">menu</span>
+</button>
+</div>
+<!-- Header Section -->
+<div class="px-6 pt-2 pb-[32px] w-full">
+<h1 class="text-[40px] font-bold text-primary leading-tight tracking-tight mb-3">Processing Hub</h1>
+<p class="text-[16px] text-secondary font-medium leading-relaxed">Manage and track all your ongoing processing tasks in real-time.</p>
+</div>
+<!-- Active Processing Section -->
+<div class="px-6 pb-[32px] w-full">
+<h2 class="text-[20px] font-semibold text-primary mb-5 tracking-tight">Active Processing</h2>
+<div class="bg-surface rounded-xl p-[24px] flex flex-col gap-4">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1.5 flex-1">
+<h3 class="text-primary text-[18px] font-bold leading-tight">Data Batch 001</h3>
+<p class="text-secondary text-[14px] font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] animate-spin text-amber" style="animation-duration: 3s;">sync</span>
+                        Processing - 45% complete
+                    </p>
+</div>
+<div class="w-20 h-20 bg-surface-variant rounded-lg shrink-0 bg-cover bg-center overflow-hidden" data-alt="A detailed dark mode 3D render of a futuristic data processing core. Glowing neon blue and warm gold geometric shapes float within a deep charcoal black void. The lighting is dramatic and moody, emphasizing the high-tech, cybernetic aesthetic. The composition suggests active computation and data flow in a modern software interface context." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRaXWWu3kOkANjWDy3BkFiDH21JNs63oEH40yF0raWDvdpiunrtiQm2kUq2DD47AgogoOuwqVXlDmsgBYxEO4a4d-fVtZeTBwL3l99npB8bISQf2138Di94in7LRrCGA9XysKu--ByqdyVjmLoDz9Dhmz8-ZpDmUUDTH7AnanfyDOf_tEO4TOwNDskT-L3O_T2HLUsfidPa1_J7q9R7VitZHPSXOULzgfWlTPHPLySQyhsrsOE05_xcNOJKBDhWH2JUlYylPt-NoNL');"></div>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden mt-2">
+<div class="bg-amber h-full rounded-full transition-all duration-500 ease-out" style="width: 45%;"></div>
+</div>
+</div>
+</div>
+<!-- Activity Feed Section -->
+<div class="px-6 pb-12 w-full flex-1">
+<h2 class="text-[20px] font-semibold text-primary mb-6 tracking-tight">Recent Activity</h2>
+<div class="flex flex-col gap-6">
+<!-- Feed Item 1 -->
+<div class="flex gap-5">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-[15px] font-medium text-primary">Batch 000 initialization completed.</p>
+<p class="text-[13px] text-secondary mt-1">10 minutes ago</p>
+</div>
+</div>
+<!-- Feed Item 2 -->
+<div class="flex gap-5">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-[15px] font-medium text-primary">Uploaded source files for Batch 001.</p>
+<p class="text-[13px] text-secondary mt-1">45 minutes ago</p>
+</div>
+</div>
+<!-- Feed Item 3 -->
+<div class="flex gap-5">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-[15px] font-medium text-primary">System admin granted access to raw logs.</p>
+<p class="text-[13px] text-secondary mt-1">2 hours ago</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

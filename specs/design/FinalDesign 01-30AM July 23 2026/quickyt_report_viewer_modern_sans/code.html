@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Report Viewer</title>
+<!-- Google Fonts: Inter exclusively -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            "colors": {},
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap": "32px",
+                    "container-padding": "24px",
+                    "element-gap": "16px",
+                    "sidebar-width": "280px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-white text-black font-body-md antialiased min-h-screen flex flex-col overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 z-40 bg-transparent flex items-center px-container-padding h-[64px]">
+<button class="text-black cursor-pointer active:opacity-80 p-2 hover:bg-[#E0E0E0] transition-colors rounded-sm -ml-2" id="menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full relative pb-32 max-w-7xl mx-auto px-gutter">
+<!-- Page Header -->
+<div class="mb-[32px] mt-4">
+<h1 class="text-headline-lg font-bold text-black mb-2 tracking-tight">Report Viewer</h1>
+<p class="text-body-lg text-[#424242]">High-fidelity technical analysis and research findings</p>
+</div>
+<article class="max-w-[760px] mx-auto py-8">
+<!-- Document Header -->
+<header class="mb-section-gap">
+<div class="flex items-center gap-3 mb-6">
+<span class="bg-[#F5F5F5] px-3 py-1 rounded-sm font-label-md text-label-md text-black uppercase tracking-widest font-semibold">Analysis</span>
+<span class="font-label-md text-label-md text-[#424242]">Oct 24, 2023</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] text-black mb-6 tracking-tight">
+                    The Architecture of Silence: Tonal Layering in Modern Interfaces
+                </h1>
+<div class="flex items-center gap-4 py-6 border-b-0">
+<div class="w-12 h-12 rounded-full bg-[#F5F5F5] flex items-center justify-center overflow-hidden">
+<img alt="Author" class="w-full h-full object-cover grayscale-[0.3]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv1DqMESbpUUWRFen859E8CFxY3yvj4yFYKBBf0UnqeoRynR9Vsh-2LHZKo1piEJmZJBWJgVirnSv11F4k70dz6mit2lqd01WiZCuABb0flSX-eiVgdPT2OA_m_TP-y0GZReWwrYLbVzY0B-WsWlm02TySCv7HlHmB1stzCKFc4yT-Eu0Lns_fIXYQN2v87vNREtDeq0l-10bM-PPcZ1_hbtWldRIXAZ2aX6DT7fyAYNIlxf2XQV1Ty4x3KODTeHMPeTasgbEpPCpp"/>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-black font-semibold">Elias Vance</div>
+<div class="font-label-md text-label-md text-[#424242]">Lead Research Analyst, QuickYT</div>
+</div>
+</div>
+</header>
+<!-- Rendered Markdown Body -->
+<div class="max-w-none space-y-element-gap">
+<p class="font-body-lg text-body-lg text-[#424242] leading-relaxed mb-8">
+                    In the evolving landscape of digital product design, the reliance on overt structural markers—such as heavy borders, aggressive drop shadows, and compartmentalized containment boxes—is rapidly diminishing. This shift is not merely aesthetic; it represents a fundamental re-evaluation of how users process high-density information environments.
+                </p>
+<h2 class="font-headline-md text-headline-md text-black mt-12 mb-6">Dismantling the Wireframe</h2>
+<p class="font-body-lg text-body-lg text-[#424242] leading-relaxed">
+                    Historically, interfaces relied on literal translations of physical boundaries. A button needed a border to look clickable; a modal needed a shadow to appear elevated. However, as digital literacy increases, these explicit cues become unnecessary cognitive noise. 
+                </p>
+<p class="font-body-lg text-body-lg text-[#424242] leading-relaxed mt-4">
+                    By stripping away borders and shadows, the UI relies entirely on <strong class="font-semibold text-black">color theory and spatial relationships</strong> to define structure. This approach demands a highly controlled palette, typically rooted in cold, slate-based grays that reduce visual fatigue.
+                </p>
+<!-- Key Insight Block -->
+<div class="my-10 bg-[#F5F5F5] rounded-r-sm border-l-[3px] border-[#FFB300] p-[24px] flex flex-col gap-3">
+<div class="flex items-center gap-2 text-black mb-1">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+<span class="font-label-lg text-label-lg uppercase tracking-widest font-semibold">Key Insight</span>
+</div>
+<p class="font-body-lg text-body-lg text-black italic leading-relaxed m-0">
+                        "The most effective interfaces don't tell the user where to look; they construct an environment where the eye naturally rests on the critical path. Elevation should be felt through brightness, not seen through artificial shadows."
+                    </p>
+</div>
+<h2 class="font-headline-md text-headline-md text-black mt-12 mb-6">The Tonal Layering Framework</h2>
+<p class="font-body-lg text-body-lg text-[#424242] leading-relaxed mb-6">
+                    To execute this minimalist aesthetic successfully without losing hierarchy, we employ a strict stratification of tonal layers. Transitions between these layers must be sharp and immediate.
+                </p>
+<ul class="space-y-4 font-body-lg text-body-lg text-[#424242] ml-4 list-disc marker:text-black">
+<li><strong class="text-black font-semibold">Level 0 (Floor):</strong> The base canvas, establishing the darkest point of the application to ground the experience.</li>
+<li><strong class="text-black font-semibold">Level 1 (Surface):</strong> Content areas and primary reading zones. Slightly elevated to separate text from the void.</li>
+<li><strong class="text-black font-semibold">Level 2 (Container):</strong> Interactive elements, input fields, and hover states.</li>
+<li><strong class="text-black font-semibold">Level 3 (Bright):</strong> Active highlights, transient menus, or focused states demanding immediate attention.</li>
+</ul>
+<p class="font-body-lg text-body-lg text-[#424242] leading-relaxed mt-10">
+                    Interaction states in this paradigm are signaled exclusively by shifting the background color to the next tier of brightness. This technique maintains the flat, clinical precision of the interface while providing unmistakable feedback to the user.
+                </p>
+</div>
+</article>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-white transition-all duration-300 border-t border-[#E0E0E0]">
+<div class="max-w-[760px] mx-auto px-container-padding py-4 md:py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3 text-[#424242]">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+<span class="font-label-md text-label-md">2.4k Views • 8 min read</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none h-12 px-6 rounded-sm bg-[#F5F5F5] hover:bg-[#E0E0E0] transition-colors duration-200 flex items-center justify-center gap-2 text-black font-label-lg text-label-lg font-semibold">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Share Report</span>
+</button>
+<button class="flex-1 sm:flex-none h-12 px-6 rounded-sm bg-black hover:bg-[#424242] transition-colors duration-200 flex items-center justify-center gap-2 text-white font-label-lg text-label-lg font-semibold">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
+<span>Export PDF</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

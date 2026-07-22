@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickYT - PDF Document Viewer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-bright": "#393939",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#474746",
+                        "on-secondary-fixed-variant": "#474746",
+                        "tertiary-fixed-dim": "#00d9fc",
+                        "secondary-fixed": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#fbbc00",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-container": "#b7b5b4",
+                        "outline": "#9c8f78",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "surface-container-highest": "#353534",
+                        "tertiary-fixed": "#aaedff",
+                        "on-tertiary-fixed": "#001f26",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-container": "#005d6d",
+                        "on-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "secondary": "#c8c6c5",
+                        "primary-fixed": "#ffdfa0",
+                        "background": "#131313",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container-high": "#2a2a2a",
+                        "outline-variant": "#504532",
+                        "on-primary-fixed-variant": "#5c4300",
+                        "tertiary-container": "#04dcff",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-primary": "#795900",
+                        "primary-fixed-dim": "#fbbc00",
+                        "on-surface-variant": "#d4c5ab",
+                        "tertiary": "#b4efff",
+                        "on-primary-container": "#6d5000",
+                        "on-secondary": "#313030",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary": "#003640",
+                        "on-primary": "#402d00",
+                        "surface": "#131313",
+                        "primary-container": "#ffbf00",
+                        "surface-variant": "#353534",
+                        "surface-container": "#201f1f",
+                        "on-background": "#e5e2e1",
+                        "primary": "#ffe2ab",
+                        "on-primary-fixed": "#261a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-gap": "16px",
+                        "container-margin-mobile": "20px",
+                        "section-gap": "48px",
+                        "inline-gap": "12px",
+                        "container-margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .pdf-page-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: theme('colors.surface-bright');
+            border-radius: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface shadow-none border-b-0" style="border-bottom: 1px solid theme('colors.surface-container-low')">
+<div class="flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop h-16">
+<div class="flex items-center gap-stack-gap">
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity cursor-pointer active:scale-95 flex items-center justify-center p-2 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary">QuickYT</h1>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate max-w-[200px] md:max-w-md">Q3_Content_Strategy_Analysis.pdf</span>
+</div>
+</div>
+<div class="flex items-center gap-inline-gap">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden ml-2 border border-surface-container-high hidden md:block">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A macro photography style close up of a glowing amber sphere surrounded by deep shadows in a dark void. The lighting is dramatic and moody, emphasizing the contrast between the warm amber light and the surrounding blackness. The overall aesthetic is mysterious and intellectual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFrANAu10lzEQ4Y-iSWS4_y27T9DKFVkYVZOF7KOdoVWDrAWFeefCZ9g7yzRD2UNN9EY2QoTusjnXBMBtRaLJ7zdlE3T9LGgl0xV6TqUggWFyaU7q57CfnvxyVOCg1K5L-7_dwYWTD_Edh8mtp9gHenYEpM6g9cPer3nfL82SQeK1i3HWzOhdI8ihMOkRHFVbMQ7Lsj-gRQ4RwJaZ3KPXD4z1j6Cs-v_Tbx-83M5MUa0YT_EDI25J6_qb0i9_Ax5ax-8o86sDSr6E"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col md:flex-row relative h-[calc(100vh-4rem)] overflow-hidden">
+<!-- Document Toolbar (Mobile sticky top, Desktop side or integrated) -->
+<div class="bg-surface-container-low py-3 px-4 flex items-center justify-between md:justify-center md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 z-20 md:rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.4)] border border-surface-bright/30 backdrop-blur-md">
+<!-- Zoom Controls -->
+<div class="flex items-center gap-1 mr-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-bright active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="remove">remove</span>
+</button>
+<span class="font-label-md text-label-md text-on-surface min-w-[3ch] text-center">90%</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-bright active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+</button>
+</div>
+<!-- Page Navigation -->
+<div class="flex items-center gap-3">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-bright active:scale-95 opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="bg-surface-dim px-3 py-1.5 rounded flex items-center font-label-md text-label-md">
+<span class="text-primary mr-1">1</span>
+<span class="text-on-surface-variant">/ 12</span>
+</div>
+<button class="text-primary hover:text-primary-container transition-colors p-2 rounded-full hover:bg-surface-bright active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- View Options -->
+<div class="hidden md:flex items-center gap-1 ml-6 pl-6 border-l border-surface-bright">
+<button class="text-primary transition-colors p-2 rounded-full bg-surface-bright active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="description" data-weight="fill" style="font-variation-settings: 'FILL' 1;">description</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-bright active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="grid_view">grid_view</span>
+</button>
+</div>
+</div>
+<!-- Document Viewer Canvas -->
+<div class="flex-grow bg-[#0a0a0a] overflow-y-auto custom-scrollbar flex justify-center py-6 px-4 md:py-12 md:pb-32 relative">
+<!-- PDF Page Container -->
+<div class="w-full max-w-[850px] bg-[#1a1a1a] rounded-sm pdf-page-shadow relative flex flex-col">
+<!-- Page Content Rendering Area (Simulated Document) -->
+<div class="p-8 md:p-16 text-on-surface flex flex-col gap-8 min-h-[1100px]">
+<!-- Document Header -->
+<div class="border-b border-surface-bright pb-6 mb-4">
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Internal Eyes Only</p>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2 text-white">Q3 Content Strategy Analysis</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Prepared by QuickYT Analytics Division | September 2023</p>
+</div>
+<!-- Document Body -->
+<div class="space-y-6">
+<h3 class="font-headline-md text-headline-md text-white">1. Executive Summary</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            The analysis of Q3 viewer retention metrics reveals a significant shift in audience engagement paradigms. Specifically, the implementation of <span class="bg-primary/20 text-primary px-1 rounded">dynamic thumbnail variants</span> has yielded a 14% increase in click-through rates across educational content categories.
+                        </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            However, watch time duration presents a contrasting narrative. While initial clicks are robust, the subsequent engagement drop-off within the first 120 seconds suggests a disconnect between thumbnail promise and immediate content delivery.
+                        </p>
+<!-- Highlighted Annotation Example -->
+<div class="bg-[#242424] border-l-2 border-primary p-6 my-8 rounded-r-lg relative group">
+<button class="absolute top-2 right-2 text-on-surface-variant hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="format_quote" data-weight="fill" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<div>
+<p class="font-body-md text-body-md italic text-white mb-2">"The algorithmic preference for rapid pacing must be balanced against the core audience's desire for in-depth, methodical exploration of topics."</p>
+<p class="font-label-sm text-label-sm text-primary">— Note added by J. Mercer</p>
+</div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mt-8">2. Metric Distribution</h3>
+<!-- Simulated Data Viz inside PDF -->
+<div class="h-64 bg-[#121212] rounded-lg mt-4 flex items-end justify-between p-6 border border-surface-bright relative">
+<!-- Y Axis labels -->
+<div class="absolute left-2 top-0 bottom-0 py-6 flex flex-col justify-between font-label-sm text-label-sm text-on-surface-variant text-[10px]">
+<span>100k</span>
+<span>50k</span>
+<span>0</span>
+</div>
+<div class="w-1/5 bg-surface-bright h-[30%] rounded-t-sm mx-1 hover:bg-primary/50 transition-colors"></div>
+<div class="w-1/5 bg-surface-bright h-[55%] rounded-t-sm mx-1 hover:bg-primary/50 transition-colors"></div>
+<div class="w-1/5 bg-primary h-[85%] rounded-t-sm mx-1 shadow-[0_0_15px_rgba(255,191,0,0.2)]"></div>
+<div class="w-1/5 bg-surface-bright h-[60%] rounded-t-sm mx-1 hover:bg-primary/50 transition-colors"></div>
+<div class="w-1/5 bg-surface-bright h-[40%] rounded-t-sm mx-1 hover:bg-primary/50 transition-colors"></div>
+<!-- X Axis labels -->
+<div class="absolute bottom-1 left-8 right-6 flex justify-between font-label-sm text-label-sm text-on-surface-variant text-[10px]">
+<span>W1</span>
+<span>W2</span>
+<span>W3</span>
+<span>W4</span>
+<span>W5</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Action / Annotation Button contextual to the document -->
+<button class="absolute top-1/2 -right-6 transform -translate-y-1/2 bg-[#242424] text-primary p-3 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.8)] border border-surface-bright hover:bg-surface-bright transition-colors group hidden md:block">
+<span class="material-symbols-outlined" data-icon="add_comment">add_comment</span>
+<!-- Tooltip -->
+<span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-surface px-3 py-1 rounded font-label-sm text-label-sm text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Add Annotation</span>
+</button>
+</div>
+<!-- Next Page Peek (Visual indicator of scroll) -->
+<div class="w-full max-w-[850px] bg-[#1a1a1a] h-32 rounded-sm pdf-page-shadow absolute bottom-0 translate-y-[calc(100%+24px)] opacity-50"></div>
+</div>
+</main>
+</body></html>
